@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TournamentMaker
+namespace TournamentConstructor
 {
     class Duel
     {

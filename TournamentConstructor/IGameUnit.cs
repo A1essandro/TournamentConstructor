@@ -1,6 +1,6 @@
-﻿namespace TournamentMaker
+﻿namespace TournamentConstructor
 {
-    interface IGameUnit
+    public interface IGameUnit
     {
 
         string Name { get; }

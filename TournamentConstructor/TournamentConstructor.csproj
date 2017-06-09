@@ -38,6 +38,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Championship.cs" />
+    <Compile Include="CompositeDuel.cs" />
+    <Compile Include="Match.cs" />
     <Compile Include="Row.cs" />
     <Compile Include="Table.cs" />
     <Compile Include="Tournament.cs" />

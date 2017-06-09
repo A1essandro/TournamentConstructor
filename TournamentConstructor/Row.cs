@@ -1,15 +1,15 @@
-﻿namespace TournamentMaker
+﻿namespace TournamentConstructor
 {
     class Row
     {
 
-        private IGameUnit _gameUnit;
-        private int _scores;
+        public IGameUnit GameUnit { get; protected set; }
+        public int Scores { get; protected set; }
 
         public Row(IGameUnit gameUnit, int scores = 0)
         {
-            _gameUnit = gameUnit;
-            _scores = scores;
+            GameUnit = gameUnit;
+            Scores = scores;
         }
 
     }
