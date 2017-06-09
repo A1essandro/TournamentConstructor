@@ -1,6 +1,6 @@
 ﻿namespace TournamentConstructor
 {
-    class Row
+    public class Row
     {
 
         public IGameUnit GameUnit { get; protected set; }

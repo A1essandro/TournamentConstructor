@@ -37,6 +37,7 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseGameUnit.cs" />
     <Compile Include="Championship.cs" />
     <Compile Include="CompositeDuel.cs" />
     <Compile Include="Match.cs" />

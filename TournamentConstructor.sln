@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TournamentConstructor", "TournamentConstructor\TournamentConstructor.csproj", "{3E87B221-C663-4F7D-8190-E3B5B564E856}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F6DC95C9-9327-40BB-9169-7240B3653638}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTest", "CommonTest\CommonTest.csproj", "{DD171B4B-136F-48AA-8C73-45773E598F54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +19,15 @@ Global
 		{3E87B221-C663-4F7D-8190-E3B5B564E856}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E87B221-C663-4F7D-8190-E3B5B564E856}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E87B221-C663-4F7D-8190-E3B5B564E856}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD171B4B-136F-48AA-8C73-45773E598F54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD171B4B-136F-48AA-8C73-45773E598F54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD171B4B-136F-48AA-8C73-45773E598F54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD171B4B-136F-48AA-8C73-45773E598F54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DD171B4B-136F-48AA-8C73-45773E598F54} = {F6DC95C9-9327-40BB-9169-7240B3653638}
 	EndGlobalSection
 EndGlobal
