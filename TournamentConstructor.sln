@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TournamentMaker", "TournamentMaker\TournamentMaker.csproj", "{3E87B221-C663-4F7D-8190-E3B5B564E856}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TournamentConstructor", "TournamentConstructor\TournamentConstructor.csproj", "{3E87B221-C663-4F7D-8190-E3B5B564E856}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
