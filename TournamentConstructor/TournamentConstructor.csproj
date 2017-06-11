@@ -38,12 +38,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseGameUnit.cs" />
-    <Compile Include="Championship.cs" />
+    <Compile Include="Structure\Championship.cs" />
     <Compile Include="CompositeDuel.cs" />
+    <Compile Include="IGameResult.cs" />
+    <Compile Include="ISchedule.cs" />
+    <Compile Include="Structure\ITour.cs" />
     <Compile Include="Match.cs" />
-    <Compile Include="Row.cs" />
-    <Compile Include="Table.cs" />
-    <Compile Include="Tournament.cs" />
+    <Compile Include="Structure\Row.cs" />
+    <Compile Include="ScoreGameResult.cs" />
+    <Compile Include="Structure\Table.cs" />
+    <Compile Include="Structure\Tournament.cs" />
     <Compile Include="Duel.cs" />
     <Compile Include="IGameUnit.cs" />
     <Compile Include="IPlayer.cs" />
