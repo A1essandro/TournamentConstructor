@@ -1,4 +1,6 @@
-﻿namespace TournamentConstructor.Structure
+﻿using TournamentConstructor.GameUnit;
+
+namespace TournamentConstructor.Structure
 {
     public class Row
     {

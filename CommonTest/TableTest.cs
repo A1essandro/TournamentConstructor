@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TournamentConstructor;
+using TournamentConstructor.GameUnit;
 using TournamentConstructor.Structure;
 
 namespace CommonTest

@@ -1,6 +1,7 @@
 ﻿using System;
+using TournamentConstructor.GameUnit;
 
-namespace TournamentConstructor
+namespace TournamentConstructor.Game
 {
     class Match : Duel
     {

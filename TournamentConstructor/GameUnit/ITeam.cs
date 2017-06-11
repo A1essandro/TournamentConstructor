@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TournamentConstructor
+namespace TournamentConstructor.GameUnit
 {
     interface ITeam<TPlayer> : IGameUnit
     {

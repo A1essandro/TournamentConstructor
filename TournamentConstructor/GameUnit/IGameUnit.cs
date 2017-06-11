@@ -1,4 +1,4 @@
-﻿namespace TournamentConstructor
+﻿namespace TournamentConstructor.GameUnit
 {
     public interface IGameUnit
     {

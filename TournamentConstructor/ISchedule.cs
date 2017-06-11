@@ -8,7 +8,5 @@ namespace TournamentConstructor
         ITour[] Tours { get; }
         Tournament Tournament { get; }
 
-        ITour GetNext();
-
     }
 }

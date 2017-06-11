@@ -37,21 +37,24 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseGameUnit.cs" />
+    <Compile Include="ChampionshipStandartToss.cs" />
+    <Compile Include="GameUnit\BaseGameUnit.cs" />
+    <Compile Include="IToss.cs" />
+    <Compile Include="Schedule.cs" />
     <Compile Include="Structure\Championship.cs" />
-    <Compile Include="CompositeDuel.cs" />
-    <Compile Include="IGameResult.cs" />
+    <Compile Include="Game\IGameResult.cs" />
     <Compile Include="ISchedule.cs" />
     <Compile Include="Structure\ITour.cs" />
-    <Compile Include="Match.cs" />
+    <Compile Include="Game\Match.cs" />
     <Compile Include="Structure\Row.cs" />
-    <Compile Include="ScoreGameResult.cs" />
+    <Compile Include="Game\ScoreGameResult.cs" />
     <Compile Include="Structure\Table.cs" />
+    <Compile Include="Structure\Tour.cs" />
     <Compile Include="Structure\Tournament.cs" />
-    <Compile Include="Duel.cs" />
-    <Compile Include="IGameUnit.cs" />
-    <Compile Include="IPlayer.cs" />
-    <Compile Include="ITeam.cs" />
+    <Compile Include="Game\Duel.cs" />
+    <Compile Include="GameUnit\IGameUnit.cs" />
+    <Compile Include="GameUnit\IPlayer.cs" />
+    <Compile Include="GameUnit\ITeam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
