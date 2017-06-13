@@ -39,8 +39,15 @@
   <ItemGroup>
     <Compile Include="ChampionshipStandartToss.cs" />
     <Compile Include="GameUnit\BaseGameUnit.cs" />
+    <Compile Include="IGameUnitWithStatus.cs" />
+    <Compile Include="IStage.cs" />
+    <Compile Include="IStageResult.cs" />
+    <Compile Include="IStageRule.cs" />
+    <Compile Include="IStageStatus.cs" />
     <Compile Include="IToss.cs" />
+    <Compile Include="ITournament.cs" />
     <Compile Include="Schedule.cs" />
+    <Compile Include="Stage.cs" />
     <Compile Include="Structure\Championship.cs" />
     <Compile Include="Game\IGameResult.cs" />
     <Compile Include="ISchedule.cs" />
