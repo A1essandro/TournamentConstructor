@@ -1,4 +1,5 @@
-﻿using TournamentConstructor.GameUnit;
+﻿using System.Linq;
+using TournamentConstructor.GameUnit;
 
 namespace TournamentConstructor
 {
@@ -7,7 +8,7 @@ namespace TournamentConstructor
 
         IGameUnit GameUnit { get; }
 
-        IStageStatus Status { get; }
+        ILookup<IStage, IStageStatus> Status { get; }
 
     }
 }
