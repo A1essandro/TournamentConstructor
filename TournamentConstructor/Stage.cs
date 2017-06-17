@@ -5,7 +5,7 @@ using TournamentConstructor.Structure;
 
 namespace TournamentConstructor
 {
-    public abstract class Stage : IStage
+    public class Stage : IStage
     {
 
         protected IStageRule Rule;
@@ -21,12 +21,12 @@ namespace TournamentConstructor
         protected Stage(IStageRule rule)
         {
             Rule = rule;
-            Tours = TourFiller.Fill(Rule.GetSchedule(), GameUnits);
         }
 
         public void SetUnits(IGameUnitWithStatus[] units)
         {
             GameUnits = units;
+            Tours = TourFiller.Fill(Rule.GetSchedule(), GameUnits);
         }
 
         public void SetNextStage(IStage next)
@@ -34,11 +34,20 @@ namespace TournamentConstructor
             NextStage = next;
         }
 
-        public abstract bool IsComplete();
+        public bool IsComplete()
+        {
+            throw new NotImplementedException();
+        }
 
-        public abstract void ToNextStage();
+        public void ToNextStage()
+        {
+            throw new NotImplementedException();
+        }
 
-        public abstract void ToNextTour();
+        public void ToNextTour()
+        {
+            throw new NotImplementedException();
+        }
 
         private class TourFiller
         {
@@ -51,7 +60,7 @@ namespace TournamentConstructor
                 foreach (var tour in blank)
                 {
                     result[tourIndex++] = new Tour(tour.Select(
-                        t => new Duel(GameUnits[t.Item1].GameUnit, GameUnits[t.Item2].GameUnit))
+                        t => new Duel(GameUnits[t.Item1], GameUnits[t.Item2]))
                         .ToArray());
                 }
 

@@ -47,6 +47,7 @@
     <Compile Include="IToss.cs" />
     <Compile Include="ITournament.cs" />
     <Compile Include="IToursSchedule.cs" />
+    <Compile Include="PlayOffStageRule.cs" />
     <Compile Include="Schedule.cs" />
     <Compile Include="Stage.cs" />
     <Compile Include="Structure\Championship.cs" />

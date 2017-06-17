@@ -1,14 +1,14 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
 using TournamentConstructor.GameUnit;
 
 namespace TournamentConstructor
 {
-    public interface IGameUnitWithStatus
+    public interface IGameUnitWithStatus : IGameUnit
     {
 
-        IGameUnit GameUnit { get; }
+        IDictionary<IStage, IList<IStageStatus>> Status { get; }
 
-        ILookup<IStage, IStageStatus> Status { get; }
+        void AddStatus(IStage stage, IStageStatus status);
 
     }
 }
