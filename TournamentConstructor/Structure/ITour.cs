@@ -7,5 +7,7 @@ namespace TournamentConstructor.Structure
 
         Duel[] Games { get; }
 
+        Duel this[int index]{ get; }
+
     }
 }

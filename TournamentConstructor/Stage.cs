@@ -8,7 +8,26 @@ namespace TournamentConstructor
     public class Stage : IStage
     {
 
+        #region Fields
+
+        private int _currentTourIndex = 0;
+        private bool _started = false;
+
+        #endregion
+
+        #region Properties
+
         protected IStageRule Rule;
+
+        public ITour CurrentTour { get
+            {
+                if(_started)
+                {
+                    return Tours[_currentTourIndex];
+                }
+                throw new InvalidOperationException("Stage not started!");
+            }
+        }
 
         public IStage NextStage { get; private set; }
 
@@ -18,9 +37,18 @@ namespace TournamentConstructor
 
         public IStageResult Result { get; protected set; }
 
-        protected Stage(IStageRule rule)
+        #endregion
+
+        public Stage(IStageRule rule)
         {
             Rule = rule;
+        }
+
+        public void Start()
+        {
+            if (GameUnits.Length == 0)
+                throw new InvalidOperationException("Stage cannot be started!");
+            _started = true;
         }
 
         public void SetUnits(IGameUnitWithStatus[] units)
@@ -46,7 +74,9 @@ namespace TournamentConstructor
 
         public void ToNextTour()
         {
-            throw new NotImplementedException();
+            if (Tours[_currentTourIndex].Games.Any(m => !m.IsComplete))
+                throw new InvalidOperationException();
+            _currentTourIndex++;
         }
 
         private class TourFiller

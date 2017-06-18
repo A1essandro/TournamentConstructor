@@ -32,5 +32,13 @@ namespace TournamentConstructor.Game
             }
         }
 
+        public ScoreGameResult(Duel game, int first, int second)
+            : this(new Tuple<KeyValuePair<IGameUnit, int>, KeyValuePair<IGameUnit, int>>
+                  (new KeyValuePair<IGameUnit, int>(game.Players.Item1, first),
+                   new KeyValuePair<IGameUnit, int>(game.Players.Item2, second)))
+        {
+
+        }
+
     }
 }
