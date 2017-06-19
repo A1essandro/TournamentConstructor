@@ -79,10 +79,10 @@ namespace TournamentConstructor
             _currentTourIndex++;
         }
 
-        private class TourFiller
+        private static class TourFiller
         {
 
-            internal static ITour[] Fill(Tuple<int, int>[][] blank, IGameUnitWithStatus[] GameUnits)
+            internal static ITour[] Fill(Tuple<int, int>[][] blank, IGameUnitWithStatus[] gameUnits)
             {
                 var result = new Tour[blank.Length];
 
@@ -90,7 +90,7 @@ namespace TournamentConstructor
                 foreach (var tour in blank)
                 {
                     result[tourIndex++] = new Tour(tour.Select(
-                        t => new Duel(GameUnits[t.Item1], GameUnits[t.Item2]))
+                        t => new Duel(gameUnits[t.Item1], gameUnits[t.Item2]))
                         .ToArray());
                 }
 
