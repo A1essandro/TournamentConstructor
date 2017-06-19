@@ -51,6 +51,7 @@
     <Compile Include="PlayOffStageRule.cs" />
     <Compile Include="Schedule.cs" />
     <Compile Include="Stage.cs" />
+    <Compile Include="StageResult.cs" />
     <Compile Include="Structure\Championship.cs" />
     <Compile Include="Game\IGameResult.cs" />
     <Compile Include="ISchedule.cs" />

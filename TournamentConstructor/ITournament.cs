@@ -9,5 +9,9 @@ namespace TournamentConstructor
         bool IsComplete();
 
         void SetUnits(IGameUnit[] units);
+
+        void Start();
+
+        void Finish();
     }
 }

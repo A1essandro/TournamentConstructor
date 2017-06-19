@@ -10,8 +10,6 @@ namespace TournamentConstructor
 
         ITour CurrentTour { get; }
 
-        void Start();
-
         void SetNextStage(IStage next);
 
         void ToNextStage();

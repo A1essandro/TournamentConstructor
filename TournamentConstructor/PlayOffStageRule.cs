@@ -26,7 +26,14 @@ namespace TournamentConstructor
                 result[tourIndex] = new Tuple<int, int>[_pairs];
                 for (var gameIndex = 0; gameIndex < _pairs; gameIndex++)
                 {
-                    result[tourIndex][gameIndex] = new Tuple<int, int>(gameIndex*2, gameIndex*2 + 1);
+                    if (tourIndex % 2 == 0)
+                    {
+                        result[tourIndex][gameIndex] = new Tuple<int, int>(gameIndex * 2, gameIndex * 2 + 1);
+                    }
+                    else
+                    {
+                        result[tourIndex][gameIndex] = new Tuple<int, int>(gameIndex * 2 + 1, gameIndex * 2);
+                    }
                 }
             }
             return result;
@@ -41,7 +48,7 @@ namespace TournamentConstructor
                     if (game.Result is IScoreGameResult)
                     {
                         UnitPairWithResults.GetPair(game.Players.Item1, game.Players.Item2)
-                            .SetResult((ScoreGameResult) game.Result);
+                            .SetResult((ScoreGameResult)game.Result);
                     }
                 }
             }
@@ -80,7 +87,7 @@ namespace TournamentConstructor
             public void SetResult(ScoreGameResult result)
             {
                 var _homeScores = result.Score.Item1.Value;
-                var _awayScores = result.Score.Item2.Value + 0.00001*result.Score.Item1.Value;
+                var _awayScores = result.Score.Item2.Value + 0.00001 * result.Score.Item2.Value;
                 if (result.Score.Item1.Key == _team1.Key)
                 {
                     _team1 = new KeyValuePair<IGameUnit, double>(_team1.Key, _team1.Value + _homeScores);

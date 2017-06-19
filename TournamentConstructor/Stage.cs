@@ -48,6 +48,18 @@ namespace TournamentConstructor
             _currentTourIndex++;
         }
 
+        public void Finish()
+        {
+            if(Tours.Any(t => t.Games.Any(g => !g.IsComplete)))
+                throw new InvalidOperationException("Stage cannot be finished! It has incomplete games!");
+            if (_resultCalculated)
+                throw new InvalidOperationException("Stage has been finished!");
+
+            Rule.SetStatuses(this);
+            Result = new StageResult(GameUnits);
+            _resultCalculated = true;
+        }
+
         private static class TourFiller
         {
             internal static ITour[] Fill(Tuple<int, int>[][] blank, IGameUnit[] gameUnits)
@@ -70,6 +82,7 @@ namespace TournamentConstructor
 
         private int _currentTourIndex;
         private bool _started;
+        private bool _resultCalculated;
 
         #endregion
 
@@ -91,11 +104,11 @@ namespace TournamentConstructor
 
         public IStage NextStage { get; private set; }
 
+        public IStageResult Result { get; private set; }
+
         public ITour[] Tours { get; private set; }
 
         public IGameUnit[] GameUnits { get; private set; }
-
-        public IStageResult Result { get; protected set; }
 
         #endregion
     }
