@@ -4,7 +4,7 @@ using TournamentConstructor.GameUnit;
 
 namespace TournamentConstructor.Game
 {
-    public class ScoreGameResult : IGameResult
+    public class ScoreGameResult : IGameResult, IScoreGameResult
     {
         public bool IsDraft => Loser == null && Winner == null;
 
@@ -12,7 +12,7 @@ namespace TournamentConstructor.Game
 
         public IGameUnit Winner { get; protected set; }
 
-        public Tuple<KeyValuePair<IGameUnit, int>, KeyValuePair<IGameUnit, int>> Score;
+        public Tuple<KeyValuePair<IGameUnit, int>, KeyValuePair<IGameUnit, int>> Score { get; }
 
         public ScoreGameResult(Tuple<KeyValuePair<IGameUnit, int>, KeyValuePair<IGameUnit, int>> result)
         {

@@ -1,4 +1,5 @@
 ﻿using System;
+using TournamentConstructor.Structure;
 
 namespace TournamentConstructor
 {
@@ -6,6 +7,8 @@ namespace TournamentConstructor
     {
 
         Tuple<int, int>[][] GetSchedule();
+
+        void SetStatuses(ITour[] tours);
 
     }
 }
