@@ -6,9 +6,6 @@ namespace TournamentConstructor.Structure
 {
     public class Table<TRow> where TRow : Row
     {
-
-        public TRow[] Rows { get; protected set; }
-
         public Table(IGameUnit[] units, Func<IGameUnit, TRow> foo)
         {
             Rows = new TRow[units.Length];
@@ -24,10 +21,11 @@ namespace TournamentConstructor.Structure
             Rows = rows;
         }
 
+        public TRow[] Rows { get; protected set; }
+
         public IGameUnit[] GetParticipants()
         {
             return Rows.Select(x => x.GameUnit).ToArray();
         }
-
     }
 }

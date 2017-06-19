@@ -6,8 +6,6 @@ namespace TournamentConstructor
 {
     public interface IScoreGameResult
     {
-
         Tuple<KeyValuePair<IGameUnit, int>, KeyValuePair<IGameUnit, int>> Score { get; }
-
     }
 }

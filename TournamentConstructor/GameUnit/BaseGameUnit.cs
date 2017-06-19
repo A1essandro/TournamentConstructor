@@ -2,21 +2,20 @@
 
 namespace TournamentConstructor.GameUnit
 {
-    public class BaseGameUnit : IGameUnitWithStatus
+    public class BaseGameUnit : IGameUnit
     {
-        public string Name { get; private set; }
-
-        public IDictionary<IStage, IList<IStageStatus>> Status { get; private set; }
-
         public BaseGameUnit(string name)
         {
             Name = name;
         }
 
+        public string Name { get; }
+
+        public IDictionary<IStage, IList<IStageStatus>> Status { get; private set; }
+
         public void AddStatus(IStage stage, IStageStatus status)
         {
             Status[stage].Add(status);
         }
-
     }
 }

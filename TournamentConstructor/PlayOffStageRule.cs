@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using TournamentConstructor.Game;
 using TournamentConstructor.GameUnit;
-using TournamentConstructor.Structure;
+using TournamentConstructor.GameUnit.Status;
 
 namespace TournamentConstructor
 {
     public struct PlayOffStageRule : IStageRule
     {
-
         private readonly int _pairs;
         private readonly int _gamesPerPair;
 
@@ -27,15 +26,15 @@ namespace TournamentConstructor
                 result[tourIndex] = new Tuple<int, int>[_pairs];
                 for (var gameIndex = 0; gameIndex < _pairs; gameIndex++)
                 {
-                    result[tourIndex][gameIndex] = new Tuple<int, int>(gameIndex * 2, gameIndex * 2 + 1);
+                    result[tourIndex][gameIndex] = new Tuple<int, int>(gameIndex*2, gameIndex*2 + 1);
                 }
             }
             return result;
         }
 
-        public void SetStatuses(ITour[] tours)
+        public void SetStatuses(IStage stage)
         {
-            foreach (var tour in tours)
+            foreach (var tour in stage.Tours)
             {
                 foreach (var game in tour.Games)
                 {
@@ -44,26 +43,17 @@ namespace TournamentConstructor
                         UnitPairWithResults.GetPair(game.Players.Item1, game.Players.Item2)
                             .SetResult((ScoreGameResult) game.Result);
                     }
-                    else
-                    {
-                        //TODO: rewrite logic
-                    }
-
                 }
-
             }
 
-            foreach (var pair in UnitPairWithResults.Pairs)
+            foreach (var winner in UnitPairWithResults.Pairs.Select(pair => pair.GetWinnerThenLoser().Item1))
             {
-                var winnerThenLoser = pair.GetWinnerThenLoser();
+                winner.AddStatus(stage, new PairWinner());
             }
-
         }
 
         private class UnitPairWithResults
         {
-            public static IList<UnitPairWithResults> Pairs { get; } = new List<UnitPairWithResults>();
-
             private KeyValuePair<IGameUnit, double> _team1;
             private KeyValuePair<IGameUnit, double> _team2;
 
@@ -73,10 +63,12 @@ namespace TournamentConstructor
                 _team2 = new KeyValuePair<IGameUnit, double>(team2, 0);
             }
 
+            public static IList<UnitPairWithResults> Pairs { get; } = new List<UnitPairWithResults>();
+
             public static UnitPairWithResults GetPair(IGameUnit team1, IGameUnit team2)
             {
                 var result = Pairs.SingleOrDefault(x => (x._team1.Key == team1 && x._team2.Key == team2)
-                                        || (x._team1.Key == team2 && x._team1.Key == team2));
+                                                        || (x._team1.Key == team2 && x._team1.Key == team2));
 
                 if (result != null) return result;
 
@@ -88,7 +80,7 @@ namespace TournamentConstructor
             public void SetResult(ScoreGameResult result)
             {
                 var _homeScores = result.Score.Item1.Value;
-                var _awayScores = result.Score.Item2.Value + 0.00001 * result.Score.Item1.Value;
+                var _awayScores = result.Score.Item2.Value + 0.00001*result.Score.Item1.Value;
                 if (result.Score.Item1.Key == _team1.Key)
                 {
                     _team1 = new KeyValuePair<IGameUnit, double>(_team1.Key, _team1.Value + _homeScores);
@@ -107,8 +99,6 @@ namespace TournamentConstructor
                 var loser = _team1.Key == winner ? _team2.Key : _team1.Key;
                 return new Tuple<IGameUnit, IGameUnit>(winner, loser);
             }
-
         }
-
     }
 }

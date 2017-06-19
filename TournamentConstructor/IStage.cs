@@ -4,8 +4,9 @@ namespace TournamentConstructor
 {
     public interface IStage : ITournament
     {
-
         IStageResult Result { get; }
+
+        ITour[] Tours { get; }
 
         ITour CurrentTour { get; }
 
@@ -16,6 +17,5 @@ namespace TournamentConstructor
         void ToNextStage();
 
         void ToNextTour();
-
     }
 }

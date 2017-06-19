@@ -4,9 +4,7 @@ namespace TournamentConstructor
 {
     public interface ISchedule
     {
-
         ITour[] Tours { get; }
         Tournament Tournament { get; }
-
     }
 }

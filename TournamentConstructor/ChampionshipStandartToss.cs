@@ -10,16 +10,16 @@ namespace TournamentConstructor
     {
         public ISchedule ToToss(Tournament tournament)
         {
-            var part1 = tournament.Participants.Take(tournament.Participants.Length / 2).ToArray();
-            var part2 = tournament.Participants.Skip(tournament.Participants.Length / 2).ToArray();
+            var part1 = tournament.Participants.Take(tournament.Participants.Length/2).ToArray();
+            var part2 = tournament.Participants.Skip(tournament.Participants.Length/2).ToArray();
 
-            var tours = new Tour[(tournament.Participants.Length - 1) * 2];
+            var tours = new Tour[(tournament.Participants.Length - 1)*2];
             var tourIndex = 0;
-            
+
             while (tours.Last() == null)
             {
-                var tourGames = new Duel[tournament.Participants.Length / 2];
-                for (var i = 0; i< tournament.Participants.Length / 2; i++)
+                var tourGames = new Duel[tournament.Participants.Length/2];
+                for (var i = 0; i < tournament.Participants.Length/2; i++)
                 {
                     tourGames[i] = new Duel(new Tuple<IGameUnit, IGameUnit>(part1[i], part2[i]));
                 }

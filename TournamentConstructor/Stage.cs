@@ -1,44 +1,13 @@
 ﻿using System;
 using System.Linq;
 using TournamentConstructor.Game;
+using TournamentConstructor.GameUnit;
 using TournamentConstructor.Structure;
 
 namespace TournamentConstructor
 {
     public class Stage : IStage
     {
-
-        #region Fields
-
-        private int _currentTourIndex = 0;
-        private bool _started = false;
-
-        #endregion
-
-        #region Properties
-
-        protected IStageRule Rule;
-
-        public ITour CurrentTour { get
-            {
-                if(_started)
-                {
-                    return Tours[_currentTourIndex];
-                }
-                throw new InvalidOperationException("Stage not started!");
-            }
-        }
-
-        public IStage NextStage { get; private set; }
-
-        public ITour[] Tours { get; private set; }
-
-        public IGameUnitWithStatus[] GameUnits { get; private set; }
-
-        public IStageResult Result { get; protected set; }
-
-        #endregion
-
         public Stage(IStageRule rule)
         {
             Rule = rule;
@@ -51,7 +20,7 @@ namespace TournamentConstructor
             _started = true;
         }
 
-        public void SetUnits(IGameUnitWithStatus[] units)
+        public void SetUnits(IGameUnit[] units)
         {
             GameUnits = units;
             Tours = TourFiller.Fill(Rule.GetSchedule(), GameUnits);
@@ -81,8 +50,7 @@ namespace TournamentConstructor
 
         private static class TourFiller
         {
-
-            internal static ITour[] Fill(Tuple<int, int>[][] blank, IGameUnitWithStatus[] gameUnits)
+            internal static ITour[] Fill(Tuple<int, int>[][] blank, IGameUnit[] gameUnits)
             {
                 var result = new Tour[blank.Length];
 
@@ -96,8 +64,39 @@ namespace TournamentConstructor
 
                 return result;
             }
-
         }
 
+        #region Fields
+
+        private int _currentTourIndex;
+        private bool _started;
+
+        #endregion
+
+        #region Properties
+
+        protected IStageRule Rule;
+
+        public ITour CurrentTour
+        {
+            get
+            {
+                if (_started)
+                {
+                    return Tours[_currentTourIndex];
+                }
+                throw new InvalidOperationException("Stage not started!");
+            }
+        }
+
+        public IStage NextStage { get; private set; }
+
+        public ITour[] Tours { get; private set; }
+
+        public IGameUnit[] GameUnits { get; private set; }
+
+        public IStageResult Result { get; protected set; }
+
+        #endregion
     }
 }

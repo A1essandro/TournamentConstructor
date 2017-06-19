@@ -4,8 +4,6 @@ namespace TournamentConstructor
 {
     public interface IToss
     {
-
         ISchedule ToToss(Tournament tournament);
-
     }
 }

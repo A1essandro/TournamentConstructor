@@ -39,7 +39,7 @@
   <ItemGroup>
     <Compile Include="ChampionshipStandartToss.cs" />
     <Compile Include="GameUnit\BaseGameUnit.cs" />
-    <Compile Include="IGameUnitWithStatus.cs" />
+    <Compile Include="GameUnit\Status\PairWinner.cs" />
     <Compile Include="IScoreGameResult.cs" />
     <Compile Include="IStage.cs" />
     <Compile Include="IStageResult.cs" />

@@ -3,7 +3,7 @@ using TournamentConstructor.Structure;
 
 namespace TournamentConstructor
 {
-    class Schedule : ISchedule
+    internal class Schedule : ISchedule
     {
         private Tour[] tour;
 
@@ -14,19 +14,12 @@ namespace TournamentConstructor
 
         public Tournament Tournament
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { throw new NotImplementedException(); }
         }
 
         public ITour[] Tours
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { throw new NotImplementedException(); }
         }
-
     }
 }

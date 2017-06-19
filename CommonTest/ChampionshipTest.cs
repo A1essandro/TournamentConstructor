@@ -1,5 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
+﻿using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TournamentConstructor;
 using TournamentConstructor.GameUnit;
 using TournamentConstructor.Structure;
@@ -37,7 +37,7 @@ namespace CommonTest
             var C = new BaseGameUnit("C");
             var D = new BaseGameUnit("D");
 
-            return new BaseGameUnit[4] { A, B, C, D };
+            return new BaseGameUnit[4] {A, B, C, D};
         }
     }
 }

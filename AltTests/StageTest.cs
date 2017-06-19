@@ -1,9 +1,8 @@
-﻿using System;
+﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TournamentConstructor.GameUnit;
 using TournamentConstructor;
-using System.Linq;
 using TournamentConstructor.Game;
+using TournamentConstructor.GameUnit;
 
 namespace AltTests
 {
@@ -41,7 +40,7 @@ namespace AltTests
             var C = new BaseGameUnit("C");
             var D = new BaseGameUnit("D");
 
-            return new BaseGameUnit[4] { A, B, C, D };
+            return new BaseGameUnit[4] {A, B, C, D};
         }
     }
 }

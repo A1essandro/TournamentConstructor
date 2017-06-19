@@ -4,12 +4,10 @@ namespace TournamentConstructor
 {
     public interface ITournament
     {
-
-        IGameUnitWithStatus[] GameUnits { get; }
+        IGameUnit[] GameUnits { get; }
 
         bool IsComplete();
 
-        void SetUnits(IGameUnitWithStatus[] units);
-
+        void SetUnits(IGameUnit[] units);
     }
 }

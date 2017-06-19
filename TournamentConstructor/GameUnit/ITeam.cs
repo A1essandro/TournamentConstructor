@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TournamentConstructor.GameUnit
+﻿namespace TournamentConstructor.GameUnit
 {
-    interface ITeam<TPlayer> : IGameUnit
+    internal interface ITeam<TPlayer> : IGameUnit
     {
-
-
-
     }
 }

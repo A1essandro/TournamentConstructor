@@ -4,8 +4,6 @@ namespace TournamentConstructor
 {
     public interface IStageResult
     {
-
-        IGameUnitWithStatus[] GameUnits { get; }
-
+        IGameUnit[] GameUnits { get; }
     }
 }

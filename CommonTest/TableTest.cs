@@ -15,7 +15,7 @@ namespace CommonTest
             var C = new BaseGameUnit("C");
             var D = new BaseGameUnit("D");
 
-            var teams = new BaseGameUnit[4] { A, B, C, D };
+            var teams = new BaseGameUnit[4] {A, B, C, D};
 
             var table = new Table<Row>(teams, t => new Row(t));
             Assert.AreEqual(table.Rows.Length, teams.Length);

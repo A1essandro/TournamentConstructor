@@ -6,14 +6,6 @@ namespace TournamentConstructor.Game
 {
     public class ScoreGameResult : IGameResult, IScoreGameResult
     {
-        public bool IsDraft => Loser == null && Winner == null;
-
-        public IGameUnit Loser { get; protected set; }
-
-        public IGameUnit Winner { get; protected set; }
-
-        public Tuple<KeyValuePair<IGameUnit, int>, KeyValuePair<IGameUnit, int>> Score { get; }
-
         public ScoreGameResult(Tuple<KeyValuePair<IGameUnit, int>, KeyValuePair<IGameUnit, int>> result)
         {
             Score = result;
@@ -34,11 +26,17 @@ namespace TournamentConstructor.Game
 
         public ScoreGameResult(Duel game, int first, int second)
             : this(new Tuple<KeyValuePair<IGameUnit, int>, KeyValuePair<IGameUnit, int>>
-                  (new KeyValuePair<IGameUnit, int>(game.Players.Item1, first),
-                   new KeyValuePair<IGameUnit, int>(game.Players.Item2, second)))
+                (new KeyValuePair<IGameUnit, int>(game.Players.Item1, first),
+                    new KeyValuePair<IGameUnit, int>(game.Players.Item2, second)))
         {
-
         }
 
+        public bool IsDraft => Loser == null && Winner == null;
+
+        public IGameUnit Loser { get; protected set; }
+
+        public IGameUnit Winner { get; protected set; }
+
+        public Tuple<KeyValuePair<IGameUnit, int>, KeyValuePair<IGameUnit, int>> Score { get; }
     }
 }
