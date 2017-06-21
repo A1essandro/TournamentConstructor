@@ -11,7 +11,7 @@ namespace TournamentConstructor.Game
         }
 
 
-        public Duel(IMeet<Duel> meet,IGameUnit winner)
+        public Duel(IMeet<Duel> meet, IGameUnit winner)
         {
             if (meet.Players.Item1 == winner)
             {
@@ -28,8 +28,5 @@ namespace TournamentConstructor.Game
         public bool IsDraft => false;
         public IGameUnit Winner { get; }
         public IGameUnit Loser { get; }
-
-
-
     }
 }

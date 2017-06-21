@@ -26,13 +26,13 @@ namespace TournamentConstructor
                 result[tourIndex] = new Tuple<int, int>[_pairs];
                 for (var gameIndex = 0; gameIndex < _pairs; gameIndex++)
                 {
-                    if (tourIndex % 2 == 0)
+                    if (tourIndex%2 == 0)
                     {
-                        result[tourIndex][gameIndex] = new Tuple<int, int>(gameIndex * 2, gameIndex * 2 + 1);
+                        result[tourIndex][gameIndex] = new Tuple<int, int>(gameIndex*2, gameIndex*2 + 1);
                     }
                     else
                     {
-                        result[tourIndex][gameIndex] = new Tuple<int, int>(gameIndex * 2 + 1, gameIndex * 2);
+                        result[tourIndex][gameIndex] = new Tuple<int, int>(gameIndex*2 + 1, gameIndex*2);
                     }
                 }
             }
@@ -81,7 +81,7 @@ namespace TournamentConstructor
             public void SetResult(Match result)
             {
                 var homeScores = result.Score.Item1.Value;
-                var awayScores = result.Score.Item2.Value + 0.00001 * result.Score.Item2.Value;
+                var awayScores = result.Score.Item2.Value + 0.00001*result.Score.Item2.Value;
                 if (result.Score.Item1.Key == _team1.Key)
                 {
                     _team1 = new KeyValuePair<IGameUnit, double>(_team1.Key, _team1.Value + homeScores);

@@ -16,7 +16,7 @@ namespace TournamentConstructor.GameUnit
 
         public void AddStatus(ITournament stage, IStageStatus status)
         {
-            if(!Status.ContainsKey(stage))
+            if (!Status.ContainsKey(stage))
                 Status[stage] = new List<IStageStatus>();
             Status[stage].Add(status);
         }

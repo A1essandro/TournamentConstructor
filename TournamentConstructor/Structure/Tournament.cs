@@ -4,12 +4,11 @@ namespace TournamentConstructor.Structure
 {
     public class Tournament
     {
-        public Tournament(IGameUnit[] participants, IToss toss)
+        public Tournament(IGameUnit[] participants)
         {
             Participants = participants;
         }
 
         public IGameUnit[] Participants { get; private set; }
-
     }
 }

@@ -3,7 +3,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TournamentConstructor;
 using TournamentConstructor.Game;
 using TournamentConstructor.GameUnit;
-using TournamentConstructor.GameUnit.Status;
 
 namespace AltTests
 {
@@ -53,7 +52,7 @@ namespace AltTests
             var C = new BaseGameUnit("C");
             var D = new BaseGameUnit("D");
 
-            return new BaseGameUnit[4] { A, B, C, D };
+            return new BaseGameUnit[4] {A, B, C, D};
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using TournamentConstructor.Structure;
-
-namespace TournamentConstructor
+﻿namespace TournamentConstructor
 {
     public interface IToss
     {

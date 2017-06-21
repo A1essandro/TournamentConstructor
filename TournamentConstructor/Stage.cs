@@ -51,12 +51,12 @@ namespace TournamentConstructor
 
         public void Finish()
         {
-            if(Tours.Any(t => t.Games.Any(g => !g.IsComplete)))
+            if (Tours.Any(t => t.Games.Any(g => !g.IsComplete)))
                 throw new InvalidOperationException("Stage cannot be finished! It has incomplete games!");
             if (_resultCalculated)
                 throw new InvalidOperationException("Stage has been finished!");
 
-            Rule.SetStatuses<TMeetType>(this);
+            Rule.SetStatuses(this);
             Result = new StageResult(GameUnits);
             _resultCalculated = true;
         }

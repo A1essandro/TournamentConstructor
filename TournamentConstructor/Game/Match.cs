@@ -31,12 +31,12 @@ namespace TournamentConstructor.Game
         {
         }
 
+        public Tuple<KeyValuePair<IGameUnit, int>, KeyValuePair<IGameUnit, int>> Score { get; }
+
         public bool IsDraft => Loser == null && Winner == null;
 
         public IGameUnit Loser { get; protected set; }
 
         public IGameUnit Winner { get; protected set; }
-
-        public Tuple<KeyValuePair<IGameUnit, int>, KeyValuePair<IGameUnit, int>> Score { get; }
     }
 }
