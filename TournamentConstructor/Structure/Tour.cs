@@ -2,15 +2,15 @@
 
 namespace TournamentConstructor.Structure
 {
-    public class Tour : ITour
+    public class Tour<TMeetType> : ITour<TMeetType> where TMeetType : IMeetFact
     {
-        public Tour(Duel[] games)
+        public Tour(IMeet<TMeetType>[] games)
         {
             Games = games;
         }
 
-        public Duel[] Games { get; }
+        public IMeet<TMeetType>[] Games { get; }
 
-        public Duel this[int index] => Games[index];
+        public IMeet<TMeetType> this[int index] => Games[index];
     }
 }

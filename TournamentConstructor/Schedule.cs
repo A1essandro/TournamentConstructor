@@ -1,13 +1,14 @@
 ﻿using System;
+using TournamentConstructor.Game;
 using TournamentConstructor.Structure;
 
 namespace TournamentConstructor
 {
-    internal class Schedule : ISchedule
+    internal class Schedule<TMeetType> : ISchedule<TMeetType> where TMeetType : IMeetFact
     {
-        private Tour[] tour;
+        private ITour<TMeetType>[] tour;
 
-        public Schedule(Tour[] tour)
+        public Schedule(ITour<TMeetType>[] tour)
         {
             this.tour = tour;
         }
@@ -17,7 +18,7 @@ namespace TournamentConstructor
             get { throw new NotImplementedException(); }
         }
 
-        public ITour[] Tours
+        public ITour<TMeetType>[] Tours
         {
             get { throw new NotImplementedException(); }
         }

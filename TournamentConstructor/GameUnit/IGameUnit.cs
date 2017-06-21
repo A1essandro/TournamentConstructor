@@ -6,8 +6,8 @@ namespace TournamentConstructor.GameUnit
     {
         string Name { get; }
 
-        IDictionary<IStage, IList<IStageStatus>> Status { get; }
+        IDictionary<ITournament, IList<IStageStatus>> Status { get; }
 
-        void AddStatus(IStage stage, IStageStatus status);
+        void AddStatus(ITournament stage, IStageStatus status);
     }
 }

@@ -24,18 +24,18 @@ namespace AltTests
         public void TestPlayoffStage()
         {
             var units = GetUnits();
-            var stage = new Stage(new PlayOffStageRule(2, 2));
+            var stage = new Stage<Match>(new PlayOffStageRule(2, 2));
             stage.SetUnits(units);
             stage.Start();
 
             Assert.AreEqual(units.First(), stage.Tours.First().Games.First().Players.Item1);
             Assert.AreEqual(units.Last(), stage.CurrentTour.Games[1].Players.Item2);
 
-            stage.CurrentTour[0].SetResult(new ScoreGameResult(stage.CurrentTour[0], 1, 2));
-            stage.CurrentTour[1].SetResult(new ScoreGameResult(stage.CurrentTour[1], 1, 1));
+            stage.CurrentTour[0].SetResult(new Match(stage.CurrentTour[0], 1, 2));
+            stage.CurrentTour[1].SetResult(new Match(stage.CurrentTour[1], 1, 1));
             stage.ToNextTour();
-            stage.CurrentTour[0].SetResult(new ScoreGameResult(stage.CurrentTour[0], 1, 0));
-            stage.CurrentTour[1].SetResult(new ScoreGameResult(stage.CurrentTour[1], 2, 1));
+            stage.CurrentTour[0].SetResult(new Match(stage.CurrentTour[0], 1, 0));
+            stage.CurrentTour[1].SetResult(new Match(stage.CurrentTour[1], 2, 1));
             stage.Finish();
 
             /*

@@ -1,10 +1,11 @@
-﻿using TournamentConstructor.Structure;
+﻿using TournamentConstructor.Game;
+using TournamentConstructor.Structure;
 
 namespace TournamentConstructor
 {
-    public interface ISchedule
+    public interface ISchedule<TMeetType> where TMeetType : IMeetFact
     {
-        ITour[] Tours { get; }
+        ITour<TMeetType>[] Tours { get; }
         Tournament Tournament { get; }
     }
 }

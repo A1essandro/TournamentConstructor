@@ -39,18 +39,12 @@ namespace TournamentConstructor
             return result;
         }
 
-        public void SetStatuses(IStage stage)
+        public void SetStatuses<TMeetType>(IStage<TMeetType> stage) where TMeetType : IMeetFact
         {
-            foreach (var tour in stage.Tours)
+            foreach (var game in stage.Tours.SelectMany(tour => tour.Games))
             {
-                foreach (var game in tour.Games)
-                {
-                    if (game.Result is IScoreGameResult)
-                    {
-                        UnitPairWithResults.GetPair(game.Players.Item1, game.Players.Item2)
-                            .SetResult((ScoreGameResult)game.Result);
-                    }
-                }
+                UnitPairWithResults.GetPair(game.Players.Item1, game.Players.Item2)
+                    .SetResult(game.Result as Match); //TODO: need to review
             }
 
             foreach (var winner in UnitPairWithResults.Pairs.Select(pair => pair.GetWinnerThenLoser().Item1))
@@ -84,19 +78,19 @@ namespace TournamentConstructor
                 return result;
             }
 
-            public void SetResult(ScoreGameResult result)
+            public void SetResult(Match result)
             {
-                var _homeScores = result.Score.Item1.Value;
-                var _awayScores = result.Score.Item2.Value + 0.00001 * result.Score.Item2.Value;
+                var homeScores = result.Score.Item1.Value;
+                var awayScores = result.Score.Item2.Value + 0.00001 * result.Score.Item2.Value;
                 if (result.Score.Item1.Key == _team1.Key)
                 {
-                    _team1 = new KeyValuePair<IGameUnit, double>(_team1.Key, _team1.Value + _homeScores);
-                    _team2 = new KeyValuePair<IGameUnit, double>(_team2.Key, _team2.Value + _awayScores);
+                    _team1 = new KeyValuePair<IGameUnit, double>(_team1.Key, _team1.Value + homeScores);
+                    _team2 = new KeyValuePair<IGameUnit, double>(_team2.Key, _team2.Value + awayScores);
                 }
                 else
                 {
-                    _team1 = new KeyValuePair<IGameUnit, double>(_team1.Key, _team1.Value + _awayScores);
-                    _team2 = new KeyValuePair<IGameUnit, double>(_team2.Key, _team2.Value + _homeScores);
+                    _team1 = new KeyValuePair<IGameUnit, double>(_team1.Key, _team1.Value + awayScores);
+                    _team2 = new KeyValuePair<IGameUnit, double>(_team2.Key, _team2.Value + homeScores);
                 }
             }
 

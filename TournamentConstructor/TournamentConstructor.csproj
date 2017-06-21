@@ -37,9 +37,10 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChampionshipStandartToss.cs" />
     <Compile Include="GameUnit\BaseGameUnit.cs" />
     <Compile Include="GameUnit\Status\PairWinner.cs" />
+    <Compile Include="Game\IMeet.cs" />
+    <Compile Include="Game\Meet.cs" />
     <Compile Include="IScoreGameResult.cs" />
     <Compile Include="IStage.cs" />
     <Compile Include="IStageResult.cs" />
@@ -52,13 +53,11 @@
     <Compile Include="Schedule.cs" />
     <Compile Include="Stage.cs" />
     <Compile Include="StageResult.cs" />
-    <Compile Include="Structure\Championship.cs" />
-    <Compile Include="Game\IGameResult.cs" />
+    <Compile Include="Game\IMeetFact.cs" />
     <Compile Include="ISchedule.cs" />
     <Compile Include="Structure\ITour.cs" />
     <Compile Include="Game\Match.cs" />
     <Compile Include="Structure\Row.cs" />
-    <Compile Include="Game\ScoreGameResult.cs" />
     <Compile Include="Structure\Table.cs" />
     <Compile Include="Structure\Tour.cs" />
     <Compile Include="Structure\Tournament.cs" />

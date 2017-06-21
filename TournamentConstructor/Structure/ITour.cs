@@ -2,10 +2,10 @@
 
 namespace TournamentConstructor.Structure
 {
-    public interface ITour
+    public interface ITour<TMeetFact> where TMeetFact : IMeetFact
     {
-        Duel[] Games { get; }
+        IMeet<TMeetFact>[] Games { get; }
 
-        Duel this[int index] { get; }
+        IMeet<TMeetFact> this[int index] { get; }
     }
 }

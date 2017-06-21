@@ -1,4 +1,5 @@
 ﻿using System;
+using TournamentConstructor.Game;
 
 namespace TournamentConstructor
 {
@@ -6,6 +7,6 @@ namespace TournamentConstructor
     {
         Tuple<int, int>[][] GetSchedule();
 
-        void SetStatuses(IStage stage);
+        void SetStatuses<TMeetType>(IStage<TMeetType> stage) where TMeetType : IMeetFact;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TournamentConstructor.Game;
 using TournamentConstructor.GameUnit;
@@ -6,7 +7,7 @@ using TournamentConstructor.Structure;
 
 namespace TournamentConstructor
 {
-    public class Stage : IStage
+    public class Stage<TMeetType> : IStage<TMeetType> where TMeetType : IMeetFact
     {
         public Stage(IStageRule rule)
         {
@@ -26,7 +27,7 @@ namespace TournamentConstructor
             Tours = TourFiller.Fill(Rule.GetSchedule(), GameUnits);
         }
 
-        public void SetNextStage(IStage next)
+        public void SetNextStage(IStage<TMeetType> next)
         {
             NextStage = next;
         }
@@ -55,22 +56,23 @@ namespace TournamentConstructor
             if (_resultCalculated)
                 throw new InvalidOperationException("Stage has been finished!");
 
-            Rule.SetStatuses(this);
+            Rule.SetStatuses<TMeetType>(this);
             Result = new StageResult(GameUnits);
             _resultCalculated = true;
         }
 
         private static class TourFiller
         {
-            internal static ITour[] Fill(Tuple<int, int>[][] blank, IGameUnit[] gameUnits)
+            internal static ITour<TMeetType>[] Fill(Tuple<int, int>[][] blank, IReadOnlyList<IGameUnit> gameUnits)
             {
-                var result = new Tour[blank.Length];
+                var result = new Tour<TMeetType>[blank.Length];
 
                 var tourIndex = 0;
                 foreach (var tour in blank)
                 {
-                    result[tourIndex++] = new Tour(tour.Select(
-                        t => new Duel(gameUnits[t.Item1], gameUnits[t.Item2]))
+                    //TODO: ALARM!!!
+                    result[tourIndex++] = new Tour<TMeetType>(tour.Select(
+                        t => new Meet<TMeetType>(gameUnits[t.Item1], gameUnits[t.Item2]))
                         .ToArray());
                 }
 
@@ -90,7 +92,7 @@ namespace TournamentConstructor
 
         protected IStageRule Rule;
 
-        public ITour CurrentTour
+        public ITour<TMeetType> CurrentTour
         {
             get
             {
@@ -102,11 +104,11 @@ namespace TournamentConstructor
             }
         }
 
-        public IStage NextStage { get; private set; }
+        public IStage<TMeetType> NextStage { get; private set; }
 
         public IStageResult Result { get; private set; }
 
-        public ITour[] Tours { get; private set; }
+        public ITour<TMeetType>[] Tours { get; private set; }
 
         public IGameUnit[] GameUnits { get; private set; }
 

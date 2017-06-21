@@ -10,11 +10,6 @@ namespace TournamentConstructor.Structure
         }
 
         public IGameUnit[] Participants { get; private set; }
-        protected IToss _toss { get; private set; }
 
-        public void Toss()
-        {
-            _toss.ToToss(this);
-        }
     }
 }

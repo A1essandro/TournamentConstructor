@@ -1,16 +1,17 @@
-﻿using TournamentConstructor.Structure;
+﻿using TournamentConstructor.Game;
+using TournamentConstructor.Structure;
 
 namespace TournamentConstructor
 {
-    public interface IStage : ITournament
+    public interface IStage<TMeetFact> : ITournament where TMeetFact : IMeetFact
     {
         IStageResult Result { get; }
 
-        ITour[] Tours { get; }
+        ITour<TMeetFact>[] Tours { get; }
 
-        ITour CurrentTour { get; }
+        ITour<TMeetFact> CurrentTour { get; }
 
-        void SetNextStage(IStage next);
+        void SetNextStage(IStage<TMeetFact> next);
 
         void ToNextStage();
 
