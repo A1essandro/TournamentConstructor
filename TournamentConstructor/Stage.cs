@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using TournamentConstructor.Game;
 using TournamentConstructor.GameUnit;
+using TournamentConstructor.Rule;
 using TournamentConstructor.Structure;
 
 namespace TournamentConstructor
 {
-    public class Stage<TMeetType> : IStage<TMeetType>
+    public class Stage<TMeetType> : IStage<TMeetType> where TMeetType : IMeetFact
     {
-        public Stage(IStageRule rule)
+        public Stage(IStageRule<TMeetType> rule)
         {
             Rule = rule;
         }
@@ -90,7 +91,7 @@ namespace TournamentConstructor
 
         #region Properties
 
-        protected IStageRule Rule;
+        protected IStageRule<TMeetType> Rule;
 
         public ITour<TMeetType> CurrentTour
         {

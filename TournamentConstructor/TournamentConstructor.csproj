@@ -44,12 +44,13 @@
     <Compile Include="IScoreGameResult.cs" />
     <Compile Include="IStage.cs" />
     <Compile Include="IStageResult.cs" />
-    <Compile Include="IStageRule.cs" />
+    <Compile Include="Rule\IStageRule.cs" />
     <Compile Include="IStageStatus.cs" />
     <Compile Include="IToss.cs" />
     <Compile Include="ITournament.cs" />
     <Compile Include="IToursSchedule.cs" />
-    <Compile Include="PlayOffStageRule.cs" />
+    <Compile Include="Rule\PlayOffStageRule.cs" />
+    <Compile Include="Rule\TwoMatchesPlayOffStageRule.cs" />
     <Compile Include="Schedule.cs" />
     <Compile Include="Stage.cs" />
     <Compile Include="StageResult.cs" />

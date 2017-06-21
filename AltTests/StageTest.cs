@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TournamentConstructor;
 using TournamentConstructor.Game;
 using TournamentConstructor.GameUnit;
+using TournamentConstructor.Rule;
 
 namespace AltTests
 {
@@ -12,18 +13,18 @@ namespace AltTests
         [TestMethod]
         public void TestPlayoffRules()
         {
-            var rules = new PlayOffStageRule(2, 1);
+            var rules = new PlayOffStageRule<Match>(2);
             var t = rules.GetSchedule();
             Assert.AreEqual(1, rules.GetSchedule().Length);
             Assert.AreEqual(2, rules.GetSchedule().First().Length);
-            Assert.AreEqual(2, rules.GetSchedule()[0][1].Item1);
+            Assert.AreEqual(2, rules.GetSchedule().First()[1].Item1);
         }
 
         [TestMethod]
         public void TestPlayoffStage()
         {
             var units = GetUnits();
-            var stage = new Stage<Match>(new PlayOffStageRule(2, 2));
+            var stage = new Stage<Match>(new TwoMatchesPlayOffStageRule(2));
             stage.SetUnits(units);
             stage.Start();
 

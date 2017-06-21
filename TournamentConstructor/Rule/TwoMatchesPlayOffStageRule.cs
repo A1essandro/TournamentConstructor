@@ -5,46 +5,45 @@ using TournamentConstructor.Game;
 using TournamentConstructor.GameUnit;
 using TournamentConstructor.GameUnit.Status;
 
-namespace TournamentConstructor
+namespace TournamentConstructor.Rule
 {
-    public struct PlayOffStageRule : IStageRule
+    public class TwoMatchesPlayOffStageRule : IStageRule<Match>
     {
-        private readonly int _pairs;
-        private readonly int _gamesPerPair;
 
-        public PlayOffStageRule(int pairs, int gamesPerPair = 1)
+        private readonly int _pairs;
+
+        public TwoMatchesPlayOffStageRule(int pairs)
         {
             _pairs = pairs;
-            _gamesPerPair = gamesPerPair;
         }
 
         public Tuple<int, int>[][] GetSchedule()
         {
-            var result = new Tuple<int, int>[_gamesPerPair][];
-            for (var tourIndex = 0; tourIndex < _gamesPerPair; tourIndex++)
+            var result = new Tuple<int, int>[2][];
+            for (var tourIndex = 0; tourIndex < 2; tourIndex++)
             {
                 result[tourIndex] = new Tuple<int, int>[_pairs];
-                for (var gameIndex = 0; gameIndex < _pairs; gameIndex++)
+                for (var gameIndex = 0; gameIndex < 2; gameIndex++)
                 {
-                    if (tourIndex%2 == 0)
+                    if (tourIndex % 2 == 0)
                     {
-                        result[tourIndex][gameIndex] = new Tuple<int, int>(gameIndex*2, gameIndex*2 + 1);
+                        result[tourIndex][gameIndex] = new Tuple<int, int>(gameIndex * 2, gameIndex * 2 + 1);
                     }
                     else
                     {
-                        result[tourIndex][gameIndex] = new Tuple<int, int>(gameIndex*2 + 1, gameIndex*2);
+                        result[tourIndex][gameIndex] = new Tuple<int, int>(gameIndex * 2 + 1, gameIndex * 2);
                     }
                 }
             }
             return result;
         }
 
-        public void SetStatuses<TMeetType>(IStage<TMeetType> stage)
+        public void SetStatuses(IStage<Match> stage)
         {
             foreach (var game in stage.Tours.SelectMany(tour => tour.Games))
             {
                 UnitPairWithResults.GetPair(game.Players.Item1, game.Players.Item2)
-                    .SetResult(game.Result as Match); //TODO: need to review
+                    .SetResult(game.Result);
             }
 
             foreach (var winner in UnitPairWithResults.Pairs.Select(pair => pair.GetWinnerThenLoser().Item1))
@@ -81,7 +80,7 @@ namespace TournamentConstructor
             public void SetResult(Match result)
             {
                 var homeScores = result.Score.Item1.Value;
-                var awayScores = result.Score.Item2.Value + 0.00001*result.Score.Item2.Value;
+                var awayScores = result.Score.Item2.Value + 0.00001 * result.Score.Item2.Value;
                 if (result.Score.Item1.Key == _team1.Key)
                 {
                     _team1 = new KeyValuePair<IGameUnit, double>(_team1.Key, _team1.Value + homeScores);
@@ -101,5 +100,6 @@ namespace TournamentConstructor
                 return new Tuple<IGameUnit, IGameUnit>(winner, loser);
             }
         }
+
     }
 }
