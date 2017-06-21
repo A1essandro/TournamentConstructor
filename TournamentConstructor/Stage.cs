@@ -7,7 +7,7 @@ using TournamentConstructor.Structure;
 
 namespace TournamentConstructor
 {
-    public class Stage<TMeetType> : IStage<TMeetType> where TMeetType : IMeetFact
+    public class Stage<TMeetType> : IStage<TMeetType>
     {
         public Stage(IStageRule rule)
         {

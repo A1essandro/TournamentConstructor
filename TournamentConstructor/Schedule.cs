@@ -1,10 +1,9 @@
 ﻿using System;
-using TournamentConstructor.Game;
 using TournamentConstructor.Structure;
 
 namespace TournamentConstructor
 {
-    internal class Schedule<TMeetType> : ISchedule<TMeetType> where TMeetType : IMeetFact
+    internal class Schedule<TMeetType> : ISchedule<TMeetType>
     {
         private ITour<TMeetType>[] tour;
 

@@ -3,7 +3,7 @@ using TournamentConstructor.GameUnit;
 
 namespace TournamentConstructor.Game
 {
-    public class Meet<TResult> : IMeet<TResult> where TResult : IMeetFact
+    public class Meet<TResult> : IMeet<TResult>
     {
         public Meet(Tuple<IGameUnit, IGameUnit> players)
         {

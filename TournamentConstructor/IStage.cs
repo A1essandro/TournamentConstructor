@@ -3,7 +3,7 @@ using TournamentConstructor.Structure;
 
 namespace TournamentConstructor
 {
-    public interface IStage<TMeetFact> : ITournament where TMeetFact : IMeetFact
+    public interface IStage<TMeetFact> : ITournament
     {
         IStageResult Result { get; }
 

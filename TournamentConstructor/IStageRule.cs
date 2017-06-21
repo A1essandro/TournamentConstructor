@@ -7,6 +7,6 @@ namespace TournamentConstructor
     {
         Tuple<int, int>[][] GetSchedule();
 
-        void SetStatuses<TMeetType>(IStage<TMeetType> stage) where TMeetType : IMeetFact;
+        void SetStatuses<TMeetType>(IStage<TMeetType> stage);
     }
 }

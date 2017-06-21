@@ -39,7 +39,7 @@ namespace TournamentConstructor
             return result;
         }
 
-        public void SetStatuses<TMeetType>(IStage<TMeetType> stage) where TMeetType : IMeetFact
+        public void SetStatuses<TMeetType>(IStage<TMeetType> stage)
         {
             foreach (var game in stage.Tours.SelectMany(tour => tour.Games))
             {
