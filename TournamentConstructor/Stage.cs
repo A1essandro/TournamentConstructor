@@ -33,16 +33,6 @@ namespace TournamentConstructor
             NextStage = next;
         }
 
-        public bool IsComplete()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ToNextStage()
-        {
-            throw new NotImplementedException();
-        }
-
         public void ToNextTour()
         {
             if (Tours[_currentTourIndex].Games.Any(m => !m.IsComplete))
@@ -60,6 +50,13 @@ namespace TournamentConstructor
             Rule.SetStatuses(this);
             Result = new StageResult(GameUnits);
             _resultCalculated = true;
+        }
+
+        public IStage<TMeetType> ToNextStage()
+        {
+            NextStage.SetUnits(Rule.GetPassing(this).ToArray());
+
+            return NextStage;
         }
 
         private static class TourFiller
@@ -104,6 +101,8 @@ namespace TournamentConstructor
                 throw new InvalidOperationException("Stage not started!");
             }
         }
+
+        public bool Completed => _started && Tours.SelectMany(t => t.Games).All(g => g.IsComplete);
 
         public IStage<TMeetType> NextStage { get; private set; }
 

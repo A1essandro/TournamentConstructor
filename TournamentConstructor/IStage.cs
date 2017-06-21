@@ -1,5 +1,4 @@
-﻿using TournamentConstructor.Game;
-using TournamentConstructor.Structure;
+﻿using TournamentConstructor.Structure;
 
 namespace TournamentConstructor
 {
@@ -13,8 +12,9 @@ namespace TournamentConstructor
 
         void SetNextStage(IStage<TMeetFact> next);
 
-        void ToNextStage();
+        IStage<TMeetFact> ToNextStage();
 
         void ToNextTour();
+
     }
 }

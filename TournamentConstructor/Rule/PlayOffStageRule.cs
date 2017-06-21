@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TournamentConstructor.Game;
+using TournamentConstructor.GameUnit;
 using TournamentConstructor.GameUnit.Status;
 
 namespace TournamentConstructor.Rule
@@ -13,6 +15,11 @@ namespace TournamentConstructor.Rule
         public PlayOffStageRule(int pairs)
         {
             _pairs = pairs;
+        }
+
+        public IEnumerable<IGameUnit> GetPassing(IStage<TMeetType> stage)
+        {
+            return stage.GameUnits.Where(p => p.Status.Any(s => s.Key == stage)).ToList();
         }
 
         public virtual Tuple<int, int>[][] GetSchedule()

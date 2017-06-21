@@ -25,6 +25,8 @@ namespace AltTests
         {
             var units = GetUnits();
             var stage = new Stage<Match>(new TwoMatchesPlayOffStageRule(2));
+            stage.SetNextStage(new Stage<Match>(new PlayOffStageRule<Match>(1)));
+
             stage.SetUnits(units);
             stage.Start();
 
@@ -37,6 +39,11 @@ namespace AltTests
             stage.CurrentTour[0].SetResult(new Match(stage.CurrentTour[0], 1, 0));
             stage.CurrentTour[1].SetResult(new Match(stage.CurrentTour[1], 2, 1));
             stage.Finish();
+
+            var nstage = stage.ToNextStage();
+            nstage.Start();
+            nstage.CurrentTour[0].SetResult(new Match(stage.CurrentTour[0], 1, 2));
+            nstage.Finish();
 
             /*
              * TODO: key not found

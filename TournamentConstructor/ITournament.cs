@@ -6,7 +6,7 @@ namespace TournamentConstructor
     {
         IGameUnit[] GameUnits { get; }
 
-        bool IsComplete();
+        bool Completed { get; }
 
         void SetUnits(IGameUnit[] units);
 

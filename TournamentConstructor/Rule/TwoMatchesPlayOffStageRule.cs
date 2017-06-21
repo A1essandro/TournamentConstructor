@@ -17,6 +17,11 @@ namespace TournamentConstructor.Rule
             _pairs = pairs;
         }
 
+        public IEnumerable<IGameUnit> GetPassing(IStage<Match> stage)
+        {
+            return stage.GameUnits.Where(p => p.Status.Any(s => s.Key == stage)).ToList();
+        }
+
         public Tuple<int, int>[][] GetSchedule()
         {
             var result = new Tuple<int, int>[2][];
