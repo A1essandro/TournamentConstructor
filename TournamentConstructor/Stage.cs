@@ -88,7 +88,7 @@ namespace TournamentConstructor
 
         #region Properties
 
-        protected IStageRule<TMeetType> Rule;
+        public IStageRule<TMeetType> Rule { get; }
 
         public ITour<TMeetType> CurrentTour
         {

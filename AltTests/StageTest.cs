@@ -25,7 +25,7 @@ namespace AltTests
         {
             var units = GetUnits();
             var stage = new Stage<Match>(new TwoMatchesPlayOffStageRule(2));
-            stage.SetNextStage(new Stage<Match>(new PlayOffStageRule<Match>(1)));
+            stage.SetNextStage(new Stage<Match>(new PlayOffStageRule<Match>(stage.Rule.PassCount / 2)));
 
             stage.SetUnits(units);
             stage.Start();

@@ -8,6 +8,9 @@ namespace TournamentConstructor.Rule
     public interface IStageRule<TMeetType>
         where TMeetType : IMeetFact
     {
+
+        uint PassCount { get; }
+
         Tuple<int, int>[][] GetSchedule();
 
         void SetStatuses(IStage<TMeetType> stage);
