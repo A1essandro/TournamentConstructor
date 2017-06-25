@@ -56,6 +56,9 @@
     <Compile Include="StageResult.cs" />
     <Compile Include="Game\IMeetFact.cs" />
     <Compile Include="ISchedule.cs" />
+    <Compile Include="Structure\Competition.cs" />
+    <Compile Include="Structure\ICompetition.cs" />
+    <Compile Include="Structure\IScheduler.cs" />
     <Compile Include="Structure\ITour.cs" />
     <Compile Include="Game\Match.cs" />
     <Compile Include="Structure\Row.cs" />
