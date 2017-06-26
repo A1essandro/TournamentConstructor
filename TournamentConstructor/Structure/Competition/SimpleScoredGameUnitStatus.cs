@@ -26,19 +26,17 @@ namespace TournamentConstructor.Structure.Competition
 
         public override void Calculate(TMeetFact meetResult)
         {
+            base.Calculate(meetResult);
             if (meetResult.IsDraft)
             {
-                AddDraft();
                 AddScores(_draftScores);
             }
             else if (meetResult.Winner == GameUnit)
             {
-                AddWin();
                 AddScores(_winScores);
             }
             else
             {
-                AddLose();
                 AddScores(_loseScores);
             }
         }

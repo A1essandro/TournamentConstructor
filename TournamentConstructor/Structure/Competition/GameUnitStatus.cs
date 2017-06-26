@@ -1,8 +1,9 @@
-﻿using TournamentConstructor.GameUnit;
+﻿using TournamentConstructor.Game;
+using TournamentConstructor.GameUnit;
 
 namespace TournamentConstructor.Structure.Competition
 {
-    public abstract class GameUnitStatus<TMeetFact>
+    public class GameUnitStatus<TMeetFact> where TMeetFact : IMeetFact
     {
 
         protected GameUnitStatus(IGameUnit gameUnit)
@@ -12,28 +13,27 @@ namespace TournamentConstructor.Structure.Competition
 
         public readonly IGameUnit GameUnit;
 
-        public abstract void Calculate(TMeetFact meetResult);
+        public virtual void Calculate(TMeetFact meetResult)
+        {
+            if (meetResult.IsDraft)
+            {
+                Drafts++;
+            }
+            else if (meetResult.Winner == GameUnit)
+            {
+                Wins++;
+            }
+            else
+            {
+                Loses++;
+            }
+        }
 
         public uint Wins { get; private set; }
 
-        protected void AddWin()
-        {
-            Wins++;
-        }
-
         public uint Loses { get; private set; }
 
-        protected void AddLose()
-        {
-            Loses++;
-        }
-
         public uint Drafts { get; private set; }
-
-        protected void AddDraft()
-        {
-            Drafts++;
-        }
 
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using TournamentConstructor.GameUnit;
+using TournamentConstructor.Game;
 
 namespace TournamentConstructor.Structure.Competition
 {
-    public abstract class CompetitionBase<TMeetFact> : ICompetition<TMeetFact>
+    public abstract class CompetitionBase<TMeetFact> : ICompetition<TMeetFact> where TMeetFact : IMeetFact
     {
 
         public ITour<TMeetFact>[] Tours { get; }
