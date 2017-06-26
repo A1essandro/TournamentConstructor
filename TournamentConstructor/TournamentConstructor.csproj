@@ -61,6 +61,7 @@
     <Compile Include="Structure\Competition\GoalDiffSimpleScoredGameUnitStatus.cs" />
     <Compile Include="Structure\Competition\ICompetition.cs" />
     <Compile Include="Structure\Competition\IScheduler.cs" />
+    <Compile Include="Structure\Competition\PlayoffShceduler.cs" />
     <Compile Include="Structure\Competition\SimpleScoredGameUnitStatus.cs" />
     <Compile Include="Structure\ITour.cs" />
     <Compile Include="Game\Match.cs" />
