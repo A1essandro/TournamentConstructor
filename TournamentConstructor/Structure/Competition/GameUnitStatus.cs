@@ -6,14 +6,14 @@ namespace TournamentConstructor.Structure.Competition
     public class GameUnitStatus<TMeetFact> where TMeetFact : IMeetFact
     {
 
-        protected GameUnitStatus(IGameUnit gameUnit)
+        public GameUnitStatus(IGameUnit gameUnit)
         {
             GameUnit = gameUnit;
         }
 
         public readonly IGameUnit GameUnit;
 
-        public virtual void Calculate(TMeetFact meetResult)
+        public virtual void AddResult(TMeetFact meetResult)
         {
             if (meetResult.IsDraft)
             {
@@ -29,11 +29,11 @@ namespace TournamentConstructor.Structure.Competition
             }
         }
 
-        public uint Wins { get; private set; }
+        public ushort Wins { get; private set; }
 
-        public uint Loses { get; private set; }
+        public ushort Loses { get; private set; }
 
-        public uint Drafts { get; private set; }
+        public ushort Drafts { get; private set; }
 
     }
 }

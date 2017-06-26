@@ -10,9 +10,9 @@ namespace TournamentConstructor.Structure.Competition
         {
         }
 
-        public override void Calculate(Match meetResult)
+        public override void AddResult(Match meetResult)
         {
-            base.Calculate(meetResult);
+            base.AddResult(meetResult);
 
             AddGoals(meetResult.GetScores(GameUnit) - meetResult.GetRivalScores(GameUnit));
         }

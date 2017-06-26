@@ -9,7 +9,7 @@ namespace TournamentConstructor.Rule
         where TMeetType : IMeetFact
     {
 
-        uint PassCount { get; }
+        ushort PassCount { get; }
 
         Tuple<int, int>[][] GetSchedule();
 

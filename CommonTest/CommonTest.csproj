@@ -51,7 +51,7 @@
   <ItemGroup>
     <Compile Include="TableTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="GameUnitStatusImplementationTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TournamentConstructor\TournamentConstructor.csproj">

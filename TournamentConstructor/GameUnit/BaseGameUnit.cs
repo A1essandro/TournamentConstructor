@@ -20,5 +20,11 @@ namespace TournamentConstructor.GameUnit
                 Status[stage] = new List<IStageStatus>();
             Status[stage].Add(status);
         }
+
+        public static implicit operator BaseGameUnit(string name)
+        {
+            return new BaseGameUnit(name);
+        }
+
     }
 }

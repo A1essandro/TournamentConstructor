@@ -10,14 +10,14 @@ namespace TournamentConstructor.Rule
     public class PlayOffStageRule<TMeetType> : IStageRule<TMeetType>
         where TMeetType : IMeetFact
     {
-        private readonly uint _pairs;
+        private readonly ushort _pairs;
 
-        public PlayOffStageRule(uint pairs)
+        public PlayOffStageRule(ushort pairs)
         {
             _pairs = pairs;
         }
 
-        public uint PassCount => _pairs;
+        public ushort PassCount => _pairs;
 
         public IEnumerable<IGameUnit> GetPassing(IStage<TMeetType> stage)
         {

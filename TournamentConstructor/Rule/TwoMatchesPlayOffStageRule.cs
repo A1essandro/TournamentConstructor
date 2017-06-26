@@ -10,10 +10,10 @@ namespace TournamentConstructor.Rule
     public class TwoMatchesPlayOffStageRule : IStageRule<Match>
     {
 
-        private readonly uint _pairs;
-        public uint PassCount => _pairs;
+        private readonly ushort _pairs;
+        public ushort PassCount => _pairs;
 
-        public TwoMatchesPlayOffStageRule(uint pairs)
+        public TwoMatchesPlayOffStageRule(ushort pairs)
         {
             _pairs = pairs;
         }

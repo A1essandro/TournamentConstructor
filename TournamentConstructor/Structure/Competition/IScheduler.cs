@@ -8,7 +8,7 @@ namespace TournamentConstructor.Structure.Competition
 
         IEnumerable<IEnumerable<Tuple<int, int>>> GetTours();
 
-        uint ToursCount { get; }
+        ushort ToursCount { get; }
 
     }
 }

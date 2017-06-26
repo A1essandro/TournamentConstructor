@@ -24,9 +24,9 @@ namespace TournamentConstructor.Structure.Competition
             Scores += scores;
         }
 
-        public override void Calculate(TMeetFact meetResult)
+        public override void AddResult(TMeetFact meetResult)
         {
-            base.Calculate(meetResult);
+            base.AddResult(meetResult);
             if (meetResult.IsDraft)
             {
                 AddScores(_draftScores);
