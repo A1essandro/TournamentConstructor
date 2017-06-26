@@ -4,6 +4,7 @@ using System.Linq;
 using TournamentConstructor.Game;
 using TournamentConstructor.GameUnit;
 using TournamentConstructor.Structure;
+using TournamentConstructor.Structure.Competition;
 
 namespace TournamentConstructor
 {

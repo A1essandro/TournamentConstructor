@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TournamentConstructor.Game;
 using TournamentConstructor.Structure;
+using TournamentConstructor.Structure.Competition;
 
 namespace TournamentConstructor
 {

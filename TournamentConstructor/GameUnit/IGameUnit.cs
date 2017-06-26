@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TournamentConstructor.Structure;
 
 namespace TournamentConstructor.GameUnit
 {
@@ -9,5 +10,6 @@ namespace TournamentConstructor.GameUnit
         IDictionary<ITournament, IList<IStageStatus>> Status { get; }
 
         void AddStatus(ITournament stage, IStageStatus status);
+
     }
 }

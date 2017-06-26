@@ -31,6 +31,20 @@ namespace TournamentConstructor.Game
         {
         }
 
+        public int GetScores(IGameUnit unit)
+        {
+            return Score.Item1.Key == unit 
+                ? Score.Item1.Value 
+                : Score.Item2.Value;
+        }
+
+        public int GetRivalScores(IGameUnit unit)
+        {
+            return Score.Item1.Key == unit
+                ? Score.Item2.Value
+                : Score.Item1.Value;
+        }
+
         public Tuple<KeyValuePair<IGameUnit, int>, KeyValuePair<IGameUnit, int>> Score { get; }
 
         public bool IsDraft => Loser == null && Winner == null;
