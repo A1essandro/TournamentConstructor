@@ -1,17 +1,16 @@
 ﻿using System;
 using TournamentConstructor.Game;
-using TournamentConstructor.GameUnit;
 
-namespace TournamentConstructor.Structure.Competition
+namespace TournamentConstructor.GameUnit.Position
 {
-    public class SimpleScoredGameUnitStatus<TMeetFact> : GameUnitStatus<TMeetFact>, IComparable<SimpleScoredGameUnitStatus<TMeetFact>>
+    public class SimpleScoredPosition<TMeetFact> : Position<TMeetFact>, IComparable<SimpleScoredPosition<TMeetFact>>
         where TMeetFact : IMeetFact
     {
         private readonly int _winScores;
         private readonly int _draftScores;
         private readonly int _loseScores;
 
-        public SimpleScoredGameUnitStatus(IGameUnit gameUnit, int winScores, int draftScores, int loseScores = 0)
+        public SimpleScoredPosition(IGameUnit gameUnit, int winScores, int draftScores, int loseScores = 0)
             : base(gameUnit)
         {
             _winScores = winScores;
@@ -43,7 +42,7 @@ namespace TournamentConstructor.Structure.Competition
             }
         }
 
-        public int CompareTo(SimpleScoredGameUnitStatus<TMeetFact> other)
+        public int CompareTo(SimpleScoredPosition<TMeetFact> other)
         {
             return Scores.CompareTo(other.Scores);
         }

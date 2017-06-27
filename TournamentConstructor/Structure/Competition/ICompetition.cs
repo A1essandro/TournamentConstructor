@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using TournamentConstructor.Game;
+using TournamentConstructor.GameUnit.Position;
 
 namespace TournamentConstructor.Structure.Competition
 {
@@ -8,7 +9,7 @@ namespace TournamentConstructor.Structure.Competition
 
         ITour<TMeetFact>[] Tours { get; }
 
-        SortedSet<GameUnitStatus<TMeetFact>> Units { get; }
+        SortedSet<Position<TMeetFact>> Units { get; }
 
     }
 

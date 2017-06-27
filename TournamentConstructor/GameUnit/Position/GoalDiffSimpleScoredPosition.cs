@@ -1,12 +1,11 @@
 ﻿using System;
 using TournamentConstructor.Game;
-using TournamentConstructor.GameUnit;
 
-namespace TournamentConstructor.Structure.Competition
+namespace TournamentConstructor.GameUnit.Position
 {
-    public class GoalDiffSimpleScoredGameUnitStatus : SimpleScoredGameUnitStatus<Match>, IComparable<GoalDiffSimpleScoredGameUnitStatus>
+    public class GoalDiffSimpleScoredPosition : SimpleScoredPosition<Match>, IComparable<GoalDiffSimpleScoredPosition>
     {
-        public GoalDiffSimpleScoredGameUnitStatus(IGameUnit gameUnit, int winScores, int draftScores, int loseScores = 0)
+        public GoalDiffSimpleScoredPosition(IGameUnit gameUnit, int winScores, int draftScores, int loseScores = 0)
             : base(gameUnit, winScores, draftScores, loseScores)
         {
         }
@@ -25,7 +24,7 @@ namespace TournamentConstructor.Structure.Competition
             GoalDiff += goals;
         }
 
-        public int CompareTo(GoalDiffSimpleScoredGameUnitStatus other)
+        public int CompareTo(GoalDiffSimpleScoredPosition other)
         {
             var parentCompare = base.CompareTo(other);
 

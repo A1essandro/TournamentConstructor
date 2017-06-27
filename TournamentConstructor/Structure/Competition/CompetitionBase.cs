@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using TournamentConstructor.Game;
+using TournamentConstructor.GameUnit.Position;
 
 namespace TournamentConstructor.Structure.Competition
 {
@@ -8,16 +9,16 @@ namespace TournamentConstructor.Structure.Competition
 
         public ITour<TMeetFact>[] Tours { get; }
 
-        public SortedSet<GameUnitStatus<TMeetFact>> Units { get; private set; }
+        public SortedSet<Position<TMeetFact>> Units { get; private set; }
 
         protected IScheduler Scheduler;
 
-        protected CompetitionBase(IScheduler scheduler, IEnumerable<GameUnitStatus<TMeetFact>> units)
+        protected CompetitionBase(IScheduler scheduler, IEnumerable<Position<TMeetFact>> units)
         {
             Scheduler = scheduler;
             Tours = new ITour<TMeetFact>[scheduler.ToursCount];
 
-            Units = new SortedSet<GameUnitStatus<TMeetFact>>(units);
+            Units = new SortedSet<Position<TMeetFact>>(units);
         }
     }
 }

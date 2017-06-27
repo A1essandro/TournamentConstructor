@@ -57,12 +57,12 @@
     <Compile Include="Game\IMeetFact.cs" />
     <Compile Include="ISchedule.cs" />
     <Compile Include="Structure\Competition\CompetitionBase.cs" />
-    <Compile Include="Structure\Competition\GameUnitStatus.cs" />
-    <Compile Include="Structure\Competition\GoalDiffSimpleScoredGameUnitStatus.cs" />
+    <Compile Include="GameUnit\Position\Position.cs" />
+    <Compile Include="GameUnit\Position\GoalDiffSimpleScoredPosition.cs" />
     <Compile Include="Structure\Competition\ICompetition.cs" />
     <Compile Include="Structure\Competition\IScheduler.cs" />
     <Compile Include="Structure\Competition\PlayoffShceduler.cs" />
-    <Compile Include="Structure\Competition\SimpleScoredGameUnitStatus.cs" />
+    <Compile Include="GameUnit\Position\SimpleScoredPosition.cs" />
     <Compile Include="Structure\ITour.cs" />
     <Compile Include="Game\Match.cs" />
     <Compile Include="Structure\Row.cs" />

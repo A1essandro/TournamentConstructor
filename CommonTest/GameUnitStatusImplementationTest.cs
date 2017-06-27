@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TournamentConstructor.Game;
 using TournamentConstructor.GameUnit;
-using TournamentConstructor.Structure.Competition;
+using TournamentConstructor.GameUnit.Position;
 
 namespace CommonTest
 {
@@ -14,7 +14,7 @@ namespace CommonTest
         {
             BaseGameUnit gameUnit = "A";
             BaseGameUnit opponent = "B";
-            var gameUnitStatus = new GameUnitStatus<Duel>(gameUnit);
+            var gameUnitStatus = new Position<Duel>(gameUnit);
 
             var duel = new Meet<Duel>(gameUnit, opponent);
             duel.SetResult(new Duel(duel, gameUnit));
@@ -36,7 +36,7 @@ namespace CommonTest
             BaseGameUnit opponent1 = "B";
             BaseGameUnit opponent2 = "C";
 
-            var status = new SimpleScoredGameUnitStatus<Match>(gameUnit, 3, 1);
+            var status = new SimpleScoredPosition<Match>(gameUnit, 3, 1);
 
             var match = new Meet<Match>(gameUnit, opponent1);
             match.SetResult(new Match(match, 3, 1));
@@ -68,7 +68,7 @@ namespace CommonTest
             BaseGameUnit opponent1 = "B";
             BaseGameUnit opponent2 = "C";
 
-            var status = new GoalDiffSimpleScoredGameUnitStatus(gameUnit, 3, 1);
+            var status = new GoalDiffSimpleScoredPosition(gameUnit, 3, 1);
 
             var match = new Meet<Match>(gameUnit, opponent1);
             match.SetResult(new Match(match, 5, 1));
