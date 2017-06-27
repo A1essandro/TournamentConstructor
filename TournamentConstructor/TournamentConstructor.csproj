@@ -60,8 +60,8 @@
     <Compile Include="GameUnit\Position\Position.cs" />
     <Compile Include="GameUnit\Position\GoalDiffSimpleScoredPosition.cs" />
     <Compile Include="Structure\Competition\ICompetition.cs" />
-    <Compile Include="Structure\Competition\IScheduler.cs" />
-    <Compile Include="Structure\Competition\PlayoffShceduler.cs" />
+    <Compile Include="Structure\Competition\Scheduler\IScheduler.cs" />
+    <Compile Include="Structure\Competition\Scheduler\PlayoffShceduler.cs" />
     <Compile Include="GameUnit\Position\SimpleScoredPosition.cs" />
     <Compile Include="Structure\ITour.cs" />
     <Compile Include="Game\Match.cs" />

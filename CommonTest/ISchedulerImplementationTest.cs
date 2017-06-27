@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
-using TournamentConstructor.Structure.Competition;
+using TournamentConstructor.Structure.Competition.Scheduler;
 
 namespace CommonTest
 {

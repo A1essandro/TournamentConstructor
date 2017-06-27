@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TournamentConstructor.Structure.Competition
+namespace TournamentConstructor.Structure.Competition.Scheduler
 {
     public interface IScheduler
     {

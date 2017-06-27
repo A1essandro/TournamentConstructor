@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TournamentConstructor.Game;
 using TournamentConstructor.GameUnit.Position;
+using TournamentConstructor.Structure.Competition.Scheduler;
 
 namespace TournamentConstructor.Structure.Competition
 {
