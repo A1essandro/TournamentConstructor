@@ -64,6 +64,7 @@
     <Compile Include="Structure\Competition\Scheduler\PlayoffShceduler.cs" />
     <Compile Include="GameUnit\Position\SimpleScoredPosition.cs" />
     <Compile Include="Structure\Competition\Scheduler\SwissScheduler.cs" />
+    <Compile Include="Structure\Competition\ScoredCompetition.cs" />
     <Compile Include="Structure\ITour.cs" />
     <Compile Include="Game\Match.cs" />
     <Compile Include="Structure\Row.cs" />

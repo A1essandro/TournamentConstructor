@@ -1,9 +1,12 @@
-﻿using TournamentConstructor.Game;
+﻿using System.Collections.Generic;
+using TournamentConstructor.Game;
 
 namespace TournamentConstructor.Structure
 {
     public class Tour<TMeetType> : ITour<TMeetType>
     {
+        private List<Meet<Match>> games;
+
         public Tour(IMeet<TMeetType>[] games)
         {
             Games = games;

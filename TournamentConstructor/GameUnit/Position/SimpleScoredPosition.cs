@@ -44,7 +44,7 @@ namespace TournamentConstructor.GameUnit.Position
 
         public int CompareTo(SimpleScoredPosition<TMeetFact> other)
         {
-            return Scores.CompareTo(other.Scores);
+            return -Scores.CompareTo(other.Scores);
         }
     }
 }

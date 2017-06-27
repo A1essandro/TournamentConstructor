@@ -5,6 +5,8 @@ namespace TournamentConstructor.GameUnit.Position
 {
     public class GoalDiffSimpleScoredPosition : SimpleScoredPosition<Match>, IComparable<GoalDiffSimpleScoredPosition>
     {
+        private BaseGameUnit baseGameUnit;
+
         public GoalDiffSimpleScoredPosition(IGameUnit gameUnit, int winScores, int draftScores, int loseScores = 0)
             : base(gameUnit, winScores, draftScores, loseScores)
         {
@@ -27,13 +29,18 @@ namespace TournamentConstructor.GameUnit.Position
         public int CompareTo(GoalDiffSimpleScoredPosition other)
         {
             var parentCompare = base.CompareTo(other);
-
             if(parentCompare != 0)
             {
                 return parentCompare;
             }
 
-            return GoalDiff.CompareTo(other.GoalDiff);
+            var goalDiff = GoalDiff.CompareTo(other.GoalDiff);
+            if(goalDiff != 0)
+            {
+                return goalDiff;
+            }
+
+            return GameUnit.Name.GetHashCode().CompareTo(other.GameUnit.Name.GetHashCode());
         }
     }
 }

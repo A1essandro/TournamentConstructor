@@ -35,10 +35,10 @@ namespace TournamentConstructor.GameUnit.Position
             var winsCompare = Wins.CompareTo(other.Wins);
             if (winsCompare == 0)
             {
-                return Drafts.CompareTo(other.Drafts);
+                return -Drafts.CompareTo(other.Drafts);
             }
 
-            return winsCompare;
+            return -winsCompare;
         }
 
         public ushort Wins { get; private set; }
