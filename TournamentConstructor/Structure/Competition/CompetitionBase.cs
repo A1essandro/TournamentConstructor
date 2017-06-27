@@ -12,12 +12,12 @@ namespace TournamentConstructor.Structure.Competition
 
         protected IScheduler Scheduler;
 
-        protected CompetitionBase(IScheduler scheduler, IEnumerable<GameUnitStatus<TMeetFact>> units, IComparer<GameUnitStatus<TMeetFact>> comparer)
+        protected CompetitionBase(IScheduler scheduler, IEnumerable<GameUnitStatus<TMeetFact>> units)
         {
             Scheduler = scheduler;
             Tours = new ITour<TMeetFact>[scheduler.ToursCount];
 
-            Units = new SortedSet<GameUnitStatus<TMeetFact>>(units, comparer);
+            Units = new SortedSet<GameUnitStatus<TMeetFact>>(units);
         }
     }
 }

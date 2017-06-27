@@ -1,9 +1,11 @@
-﻿using TournamentConstructor.Game;
+﻿using System;
+using TournamentConstructor.Game;
 using TournamentConstructor.GameUnit;
 
 namespace TournamentConstructor.Structure.Competition
 {
-    public class SimpleScoredGameUnitStatus<TMeetFact> : GameUnitStatus<TMeetFact> where TMeetFact : IMeetFact
+    public class SimpleScoredGameUnitStatus<TMeetFact> : GameUnitStatus<TMeetFact>, IComparable<SimpleScoredGameUnitStatus<TMeetFact>>
+        where TMeetFact : IMeetFact
     {
         private readonly int _winScores;
         private readonly int _draftScores;
@@ -39,6 +41,11 @@ namespace TournamentConstructor.Structure.Competition
             {
                 AddScores(_loseScores);
             }
+        }
+
+        public int CompareTo(SimpleScoredGameUnitStatus<TMeetFact> other)
+        {
+            return Scores.CompareTo(other.Scores);
         }
     }
 }

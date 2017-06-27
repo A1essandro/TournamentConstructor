@@ -1,9 +1,11 @@
-﻿using TournamentConstructor.Game;
+﻿using System;
+using TournamentConstructor.Game;
 using TournamentConstructor.GameUnit;
 
 namespace TournamentConstructor.Structure.Competition
 {
-    public class GameUnitStatus<TMeetFact> where TMeetFact : IMeetFact
+    public class GameUnitStatus<TMeetFact> : IComparable<GameUnitStatus<TMeetFact>>
+        where TMeetFact : IMeetFact
     {
 
         public GameUnitStatus(IGameUnit gameUnit)
@@ -27,6 +29,17 @@ namespace TournamentConstructor.Structure.Competition
             {
                 Loses++;
             }
+        }
+
+        public int CompareTo(GameUnitStatus<TMeetFact> other)
+        {
+            var winsCompare = Wins.CompareTo(other.Wins);
+            if (winsCompare == 0)
+            {
+                return Drafts.CompareTo(other.Drafts);
+            }
+
+            return winsCompare;
         }
 
         public ushort Wins { get; private set; }
