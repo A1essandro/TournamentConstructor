@@ -9,7 +9,7 @@ namespace TournamentConstructor.Structure.Competition
 
         ITour<TMeetFact>[] Tours { get; }
 
-        SortedSet<Position<TMeetFact>> Units { get; }
+        IEnumerable<Position<TMeetFact>> Units { get; }
 
     }
 

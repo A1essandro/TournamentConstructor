@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using TournamentConstructor.Game;
 using TournamentConstructor.GameUnit.Position;
 using TournamentConstructor.Structure.Competition.Scheduler;
@@ -10,16 +12,20 @@ namespace TournamentConstructor.Structure.Competition
 
         public ITour<TMeetFact>[] Tours { get; }
 
-        public SortedSet<Position<TMeetFact>> Units { get; private set; }
+        public IEnumerable<Position<TMeetFact>> Units => _units.OrderBy(x => x);
+
+        private IEnumerable<Position<TMeetFact>> _units;
 
         protected IScheduler Scheduler;
 
         protected CompetitionBase(IScheduler scheduler, IEnumerable<Position<TMeetFact>> units)
         {
+            if (units.Select(x => x.GameUnit).GroupBy(v => v).Where(g => g.Count() > 1).Select(g => g.Key).Count() > 0)
+                throw new ArgumentException("Duplicate of units");
             Scheduler = scheduler;
             Tours = new ITour<TMeetFact>[scheduler.ToursCount];
 
-            Units = new SortedSet<Position<TMeetFact>>(units);
+            _units = new List<Position<TMeetFact>>(units);
         }
     }
 }

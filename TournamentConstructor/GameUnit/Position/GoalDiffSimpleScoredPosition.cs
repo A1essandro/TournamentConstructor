@@ -34,13 +34,7 @@ namespace TournamentConstructor.GameUnit.Position
                 return parentCompare;
             }
 
-            var goalDiff = GoalDiff.CompareTo(other.GoalDiff);
-            if(goalDiff != 0)
-            {
-                return goalDiff;
-            }
-
-            return GameUnit.Name.GetHashCode().CompareTo(other.GameUnit.Name.GetHashCode());
+            return GoalDiff.CompareTo(other.GoalDiff);
         }
     }
 }
