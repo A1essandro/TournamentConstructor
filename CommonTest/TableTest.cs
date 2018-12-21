@@ -1,24 +1,24 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Xunit;
 using TournamentConstructor.GameUnit;
 using TournamentConstructor.Structure;
+using Moq;
 
 namespace CommonTest
 {
-    [TestClass]
     public class TableTest
     {
-        [TestMethod]
+        [Fact]
         public void Rows()
         {
-            var A = new BaseGameUnit("A");
-            var B = new BaseGameUnit("B");
-            var C = new BaseGameUnit("C");
-            var D = new BaseGameUnit("D");
+            var A = new Mock<IGameUnit>();
+            var B = new Mock<IGameUnit>();
+            var C = new Mock<IGameUnit>();
+            var D = new Mock<IGameUnit>();
 
-            var teams = new BaseGameUnit[4] {A, B, C, D};
+            var teams = new IGameUnit[4] {A.Object, B.Object, C.Object, D.Object};
 
             var table = new Table<Row>(teams, t => new Row(t));
-            Assert.AreEqual(table.Rows.Length, teams.Length);
+            Assert.Equal(table.Rows.Length, teams.Length);
         }
     }
 }

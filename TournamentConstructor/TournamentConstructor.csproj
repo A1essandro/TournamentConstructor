@@ -1,79 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3E87B221-C663-4F7D-8190-E3B5B564E856}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <PackageId>TournamentConstructor</PackageId>
+    <Version>$(Version)</Version>
+    <PackageVersion>$(PackageVersion)</PackageVersion>
+    <Authors>Alexander Yermakov</Authors>
+    <PackageTags>tournaments, competitions, match, sport</PackageTags>
+    <PackageLicenseUrl>https://github.com/A1essandro/TournamentConstructor/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/A1essandro/TournamentConstructor</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/A1essandro/TournamentConstructor.git</RepositoryUrl>
     <RootNamespace>TournamentConstructor</RootNamespace>
-    <AssemblyName>TournamentConstructor</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
+    <PackageReference Include="System.Diagnostics.Contracts" Version="4.3.0" />
+    <PackageReference Include="System.Runtime.Serialization.Xml" Version="4.3.0" />
+    <PackageReference Include="System.Threading.Tasks.Parallel" Version="4.3.0" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="GameUnit\BaseGameUnit.cs" />
-    <Compile Include="GameUnit\Status\PairWinner.cs" />
-    <Compile Include="Game\IMeet.cs" />
-    <Compile Include="Game\Meet.cs" />
-    <Compile Include="IScoreGameResult.cs" />
-    <Compile Include="IStage.cs" />
-    <Compile Include="IStageResult.cs" />
-    <Compile Include="Rule\IStageRule.cs" />
-    <Compile Include="IStageStatus.cs" />
-    <Compile Include="IToss.cs" />
-    <Compile Include="ITournament.cs" />
-    <Compile Include="IToursSchedule.cs" />
-    <Compile Include="Rule\PlayOffStageRule.cs" />
-    <Compile Include="Rule\TwoMatchesPlayOffStageRule.cs" />
-    <Compile Include="Schedule.cs" />
-    <Compile Include="Stage.cs" />
-    <Compile Include="StageResult.cs" />
-    <Compile Include="Game\IMeetFact.cs" />
-    <Compile Include="ISchedule.cs" />
-    <Compile Include="Structure\ITour.cs" />
-    <Compile Include="Game\Match.cs" />
-    <Compile Include="Structure\Row.cs" />
-    <Compile Include="Structure\Table.cs" />
-    <Compile Include="Structure\Tour.cs" />
-    <Compile Include="Structure\Tournament.cs" />
-    <Compile Include="Game\Duel.cs" />
-    <Compile Include="GameUnit\IGameUnit.cs" />
-    <Compile Include="GameUnit\IPlayer.cs" />
-    <Compile Include="GameUnit\ITeam.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
