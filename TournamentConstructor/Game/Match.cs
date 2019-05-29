@@ -1,42 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using TournamentConstructor.GameUnit;
+using TournamentConstructor.Rule;
 
 namespace TournamentConstructor.Game
 {
-    public class Match : IMeetFact
+    public class Match : IMatch
     {
-        public Match(Tuple<KeyValuePair<IGameUnit, int>, KeyValuePair<IGameUnit, int>> result)
-        {
-            Score = result;
-            if (result.Item1.Value == result.Item2.Value)
-                return;
 
-            if (result.Item1.Value > result.Item2.Value)
-            {
-                Winner = result.Item1.Key;
-                Loser = result.Item2.Key;
-            }
-            else
-            {
-                Winner = result.Item2.Key;
-                Loser = result.Item1.Key;
-            }
-        }
-
-        public Match(IMeet<Match> game, int first, int second)
-            : this(new Tuple<KeyValuePair<IGameUnit, int>, KeyValuePair<IGameUnit, int>>
-                (new KeyValuePair<IGameUnit, int>(game.Players.Item1, first),
-                    new KeyValuePair<IGameUnit, int>(game.Players.Item2, second)))
+        public Match(IGameUnit a, IGameUnit b)
+            : this(new Tuple<IGameUnit, IGameUnit>(a, b))
         {
         }
 
-        public Tuple<KeyValuePair<IGameUnit, int>, KeyValuePair<IGameUnit, int>> Score { get; }
+        public Match(Tuple<IGameUnit, IGameUnit> units)
+        {
+            Teams = units;
+        }
 
-        public bool IsDraft => Loser == null && Winner == null;
+        public bool HasResult => !(Result is null);
 
-        public IGameUnit Loser { get; protected set; }
+        public IResult Result { get; set; }
 
-        public IGameUnit Winner { get; protected set; }
+        public Tuple<IGameUnit, IGameUnit> Teams { get; }
+
     }
 }

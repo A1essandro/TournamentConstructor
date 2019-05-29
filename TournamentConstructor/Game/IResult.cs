@@ -1,16 +1,15 @@
-﻿using System;
 using TournamentConstructor.GameUnit;
 
 namespace TournamentConstructor.Game
 {
-
-    [Obsolete]
-    public interface IMeetFact
+    public interface IResult
     {
-        bool IsDraft { get; }
+
+        bool IsDraw { get; }
 
         IGameUnit Winner { get; }
 
         IGameUnit Loser { get; }
+
     }
 }
