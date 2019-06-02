@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using TournamentConstructor.GameUnit;
-using TournamentConstructor.Rule;
 
 namespace TournamentConstructor.Game
 {
