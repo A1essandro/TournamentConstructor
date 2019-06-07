@@ -1,7 +1,10 @@
+using System.Diagnostics;
 using TournamentConstructor.GameUnit;
 
 namespace TournamentConstructor
 {
+
+    [DebuggerDisplay("{GameUnit.Name}")]
     public class Participant : IParticipant
     {
 

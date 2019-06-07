@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
 using TournamentConstructor.GameUnit;
 
 namespace TournamentConstructor.Game
 {
-    public class GameResult : IResult
+    public class GameResult : IGameResult
     {
 
         public GameResult(IMatch game, int a, int b)
@@ -41,6 +43,12 @@ namespace TournamentConstructor.Game
         /// </summary>
         /// <value></value>
         public IMatch Game { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <value></value>
+        public IReadOnlyDictionary<IGameUnit, int> TeamsPoints { get; }
 
         /// <summary>
         /// 

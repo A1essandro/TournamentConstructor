@@ -2,7 +2,7 @@ using TournamentConstructor.GameUnit;
 
 namespace TournamentConstructor.Game
 {
-    public interface IResult
+    public interface IGameResult : IPointsContainer
     {
 
         bool IsDraw { get; }

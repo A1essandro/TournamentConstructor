@@ -6,7 +6,7 @@ using TournamentConstructor.Game;
 using TournamentConstructor.GameUnit;
 using Xunit;
 
-namespace CommonTest
+namespace UnitTests
 {
     public class ChampionshipTest
     {
@@ -43,9 +43,9 @@ namespace CommonTest
             Assert.Equal(b.Object, test[2].GameUnit);
         }
 
-        private IResult _getResultMock(IGameUnit player1, IGameUnit player2, int player1Points, int player2Points)
+        private IGameResult _getResultMock(IGameUnit player1, IGameUnit player2, int player1Points, int player2Points)
         {
-            var mock = new Mock<IResult>();
+            var mock = new Mock<IGameResult>();
             if (player1Points != player2Points)
             {
                 mock.SetupGet(x => x.Winner).Returns(player1Points > player2Points ? player1 : player2);

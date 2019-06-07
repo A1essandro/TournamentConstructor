@@ -8,7 +8,5 @@ namespace TournamentConstructor.GameUnit
     {
         string Name { get; }
 
-        IDictionary<ITournament, IList<IStageStatus>> Status { get; }
-
     }
 }

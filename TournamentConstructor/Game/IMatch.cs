@@ -9,7 +9,7 @@ namespace TournamentConstructor.Game
 
         bool HasResult { get; }
 
-        IResult Result { get; }
+        IGameResult Result { get; }
 
         Tuple<IGameUnit, IGameUnit> Teams { get; }
 

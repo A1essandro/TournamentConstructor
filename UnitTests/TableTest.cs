@@ -3,7 +3,7 @@ using TournamentConstructor.GameUnit;
 using TournamentConstructor.Structure;
 using Moq;
 
-namespace CommonTest
+namespace UnitTests
 {
     public class TableTest
     {

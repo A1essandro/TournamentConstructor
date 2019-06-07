@@ -19,9 +19,17 @@ namespace TournamentConstructor.Championship
             var result = Participants.AsEnumerable();
             foreach (var comparer in Comparers)
             {
-                result = result.OrderByDescending(participant => participant, comparer);
+                if (result is IOrderedEnumerable<IParticipant>)
+                {
+                    result = (result as IOrderedEnumerable<IParticipant>).ThenBy(participant => participant, comparer);
+                }
+                else
+                {
+                    result = result.OrderBy(participant => participant, comparer);
+                }
             }
 
+            var r = result.ToList();
             return result.ToArray();
         }
 
