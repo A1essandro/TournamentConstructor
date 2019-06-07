@@ -16,7 +16,7 @@ namespace TournamentConstructor.Championship
         private int _calculatePoints(IParticipant participant)
         {
             var points = GetParticipangGames(participant)
-                .Select(m => m.Result.Winner == participant.GameUnit
+                .Select(m => m.Result.Winner == participant.Team
                                 ? 3
                                 : m.Result.IsDraw
                                     ? 1

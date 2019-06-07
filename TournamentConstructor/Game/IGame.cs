@@ -1,17 +1,17 @@
 using System;
-using TournamentConstructor.GameUnit;
+using TournamentConstructor.GameUnits;
 
 namespace TournamentConstructor.Game
 {
 
-    public interface IMatch
+    public interface IGame
     {
 
         bool HasResult { get; }
 
         IGameResult Result { get; }
 
-        Tuple<IGameUnit, IGameUnit> Teams { get; }
+        Tuple<ITeam, ITeam> Teams { get; }
 
     }
 

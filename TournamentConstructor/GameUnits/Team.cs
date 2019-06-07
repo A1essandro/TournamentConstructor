@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-namespace TournamentConstructor.GameUnit
+namespace TournamentConstructor.GameUnits
 {
-    public class Team : IGameUnit
+    public class Team : ITeam
     {
 
         public Team(string name)

@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using TournamentConstructor.Game;
-using TournamentConstructor.GameUnit;
+using TournamentConstructor.GameUnits;
 
 namespace TournamentConstructor
 {
     public interface ICompetition
     {
 
-        IEnumerable<IMatch> Matches { get; }
+        IEnumerable<IGame> Matches { get; }
 
         bool IsCompleted { get; }
 

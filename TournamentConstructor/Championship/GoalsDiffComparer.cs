@@ -21,8 +21,8 @@ namespace TournamentConstructor.Championship
                 .Select(x =>
                 {
                     var points = x.GetPointsByPlayers();
-                    var positive = points[participant.GameUnit];
-                    var negative = points.Where(y => y.Key != participant.GameUnit).Sum(y => y.Value);
+                    var positive = points[participant.Team];
+                    var negative = points.Where(y => y.Key != participant.Team).Sum(y => y.Value);
                     return positive - negative;
                 })
                 .Sum();

@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using TournamentConstructor.Game;
-using TournamentConstructor.GameUnit;
+using TournamentConstructor.GameUnits;
 
 namespace TournamentConstructor
 {
     public abstract class Competition : ICompetition
     {
 
-        protected Competition(IEnumerable<IMatch> matches)
+        protected Competition(IEnumerable<IGame> matches)
         {
             Matches = matches.ToArray();
             Participants = Matches.SelectMany(x => new[] { x.Teams.Item1, x.Teams.Item2 })
@@ -17,7 +17,7 @@ namespace TournamentConstructor
                            .ToArray();
         }
 
-        public virtual IEnumerable<IMatch> Matches { get; }
+        public virtual IEnumerable<IGame> Matches { get; }
 
         public virtual IEnumerable<IParticipant> Participants { get; }
 

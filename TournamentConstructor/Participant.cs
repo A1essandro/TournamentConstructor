@@ -1,5 +1,5 @@
 using System.Diagnostics;
-using TournamentConstructor.GameUnit;
+using TournamentConstructor.GameUnits;
 
 namespace TournamentConstructor
 {
@@ -8,15 +8,15 @@ namespace TournamentConstructor
     public class Participant : IParticipant
     {
 
-        public Participant(ICompetition competition, IGameUnit gameUnit)
+        public Participant(ICompetition competition, ITeam gameUnit)
         {
             Competition = competition;
-            GameUnit = gameUnit;
+            Team = gameUnit;
         }
 
         public ICompetition Competition { get; }
 
-        public IGameUnit GameUnit { get; }
+        public ITeam Team { get; }
 
     }
 }

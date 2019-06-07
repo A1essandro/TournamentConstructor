@@ -6,7 +6,7 @@ namespace TournamentConstructor.Championship
 {
     public class Championship : Competition
     {
-        public Championship(IEnumerable<IMatch> matches, IEnumerable<IComparer<IParticipant>> comparers)
+        public Championship(IEnumerable<IGame> matches, IEnumerable<IComparer<IParticipant>> comparers)
             : base(matches)
         {
             Comparers = comparers.ToArray();

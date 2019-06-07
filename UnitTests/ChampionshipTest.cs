@@ -3,7 +3,7 @@ using System.Linq;
 using Moq;
 using TournamentConstructor.Championship;
 using TournamentConstructor.Game;
-using TournamentConstructor.GameUnit;
+using TournamentConstructor.GameUnits;
 using Xunit;
 
 namespace UnitTests
@@ -14,18 +14,18 @@ namespace UnitTests
         [Fact]
         public void OrderTest()
         {
-            var a = new Mock<IGameUnit>();
+            var a = new Mock<ITeam>();
             a.SetupGet(x => x.Name).Returns("A");
-            var b = new Mock<IGameUnit>();
+            var b = new Mock<ITeam>();
             b.SetupGet(x => x.Name).Returns("B");
-            var c = new Mock<IGameUnit>();
+            var c = new Mock<ITeam>();
             c.SetupGet(x => x.Name).Returns("C");
 
-            var games = new Mock<IMatch>[] { new Mock<IMatch>(), new Mock<IMatch>(), new Mock<IMatch>() };
+            var games = new Mock<IGame>[] { new Mock<IGame>(), new Mock<IGame>(), new Mock<IGame>() };
 
-            games[0].SetupGet(x => x.Teams).Returns(new Tuple<IGameUnit, IGameUnit>(a.Object, b.Object));
-            games[1].SetupGet(x => x.Teams).Returns(new Tuple<IGameUnit, IGameUnit>(a.Object, c.Object));
-            games[2].SetupGet(x => x.Teams).Returns(new Tuple<IGameUnit, IGameUnit>(b.Object, c.Object));
+            games[0].SetupGet(x => x.Teams).Returns(new Tuple<ITeam, ITeam>(a.Object, b.Object));
+            games[1].SetupGet(x => x.Teams).Returns(new Tuple<ITeam, ITeam>(a.Object, c.Object));
+            games[2].SetupGet(x => x.Teams).Returns(new Tuple<ITeam, ITeam>(b.Object, c.Object));
 
             games[0].SetupGet(x => x.Result).Returns(_getResultMock(a.Object, b.Object, 1, 0));
             games[0].SetupGet(x => x.HasResult).Returns(true);
@@ -38,12 +38,12 @@ namespace UnitTests
             var championship = new Championship(games.Select(x => x.Object), comparers);
             var test = championship.GetOrdered();
 
-            Assert.Equal(a.Object, test[0].GameUnit);
-            Assert.Equal(c.Object, test[1].GameUnit);
-            Assert.Equal(b.Object, test[2].GameUnit);
+            Assert.Equal(a.Object, test[0].Team);
+            Assert.Equal(c.Object, test[1].Team);
+            Assert.Equal(b.Object, test[2].Team);
         }
 
-        private IGameResult _getResultMock(IGameUnit player1, IGameUnit player2, int player1Points, int player2Points)
+        private IGameResult _getResultMock(ITeam player1, ITeam player2, int player1Points, int player2Points)
         {
             var mock = new Mock<IGameResult>();
             if (player1Points != player2Points)

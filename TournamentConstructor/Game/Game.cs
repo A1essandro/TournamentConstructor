@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using TournamentConstructor.GameUnit;
+using TournamentConstructor.GameUnits;
 
 namespace TournamentConstructor.Game
 {
-    public class Game : IMatch
+    public class Game : IGame
     {
 
         private Tuple<int, int> _points;
 
-        public Game(IGameUnit a, IGameUnit b)
-            : this(new Tuple<IGameUnit, IGameUnit>(a, b))
+        public Game(ITeam a, ITeam b)
+            : this(new Tuple<ITeam, ITeam>(a, b))
         {
         }
 
-        public Game(Tuple<IGameUnit, IGameUnit> units)
+        public Game(Tuple<ITeam, ITeam> units)
         {
             Teams = units;
         }
@@ -23,7 +23,7 @@ namespace TournamentConstructor.Game
 
         public IGameResult Result => new GameResult(this, _points.Item1, _points.Item2);
 
-        public Tuple<IGameUnit, IGameUnit> Teams { get; }
+        public Tuple<ITeam, ITeam> Teams { get; }
 
         public void SetPoints(Tuple<int, int> points) => _points = points;
 

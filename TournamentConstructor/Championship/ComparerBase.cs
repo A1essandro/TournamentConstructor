@@ -8,9 +8,9 @@ namespace TournamentConstructor.Championship
     {
         public abstract int Compare(IParticipant x, IParticipant y);
 
-        protected IEnumerable<IMatch> GetParticipangGames(IParticipant participant)
+        protected IEnumerable<IGame> GetParticipangGames(IParticipant participant)
         {
-            var player = participant.GameUnit;
+            var player = participant.Team;
             return participant.Competition.Matches
                 .Where(m => m.HasResult)
                 .Where(m => m.Teams.Item1 == player || m.Teams.Item2 == player);

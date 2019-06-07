@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace TournamentConstructor.GameUnit
+namespace TournamentConstructor.GameUnits
 {
 
-    public interface IGameUnit
+    public interface ITeam
     {
         string Name { get; }
 

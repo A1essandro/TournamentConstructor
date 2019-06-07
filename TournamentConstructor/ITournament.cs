@@ -1,14 +1,14 @@
-﻿using TournamentConstructor.GameUnit;
+﻿using TournamentConstructor.GameUnits;
 
 namespace TournamentConstructor
 {
     public interface ITournament
     {
-        IGameUnit[] GameUnits { get; }
+        ITeam[] GameUnits { get; }
 
         bool Completed { get; }
 
-        void SetUnits(IGameUnit[] units);
+        void SetUnits(ITeam[] units);
 
         void Start();
 

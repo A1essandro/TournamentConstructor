@@ -2,14 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
-using TournamentConstructor.GameUnit;
+using TournamentConstructor.GameUnits;
 
 namespace TournamentConstructor.Game
 {
     public class GameResult : IGameResult
     {
 
-        public GameResult(IMatch game, int a, int b)
+        public GameResult(IGame game, int a, int b)
         {
             Game = game;
             Points = new Tuple<int, int>(a, b);
@@ -23,7 +23,7 @@ namespace TournamentConstructor.Game
         /// <summary>
         /// 
         /// </summary>
-        public IGameUnit Winner => Points.Item1 > Points.Item2
+        public ITeam Winner => Points.Item1 > Points.Item2
                                         ? Game.Teams.Item1
                                         : Points.Item2 > Points.Item1
                                             ? Game.Teams.Item2
@@ -32,7 +32,7 @@ namespace TournamentConstructor.Game
         /// <summary>
         /// 
         /// </summary>
-        public IGameUnit Loser => Points.Item1 > Points.Item2
+        public ITeam Loser => Points.Item1 > Points.Item2
                                         ? Game.Teams.Item2
                                         : Points.Item2 > Points.Item1
                                             ? Game.Teams.Item1
@@ -42,13 +42,13 @@ namespace TournamentConstructor.Game
         /// 
         /// </summary>
         /// <value></value>
-        public IMatch Game { get; }
+        public IGame Game { get; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <value></value>
-        public IReadOnlyDictionary<IGameUnit, int> TeamsPoints { get; }
+        public IReadOnlyDictionary<ITeam, int> TeamsPoints { get; }
 
         /// <summary>
         /// 

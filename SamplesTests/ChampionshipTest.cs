@@ -1,7 +1,7 @@
 using System.Linq;
 using TournamentConstructor.Championship;
 using TournamentConstructor.Game;
-using TournamentConstructor.GameUnit;
+using TournamentConstructor.GameUnits;
 using Xunit;
 
 namespace SamplesTests
@@ -35,10 +35,10 @@ namespace SamplesTests
 
             var test = championship.GetOrdered();
 
-            Assert.Equal(b, test[0].GameUnit);
-            Assert.Equal(d, test[1].GameUnit);
-            Assert.Equal(a, test[2].GameUnit);
-            Assert.Equal(c, test[3].GameUnit);
+            Assert.Equal(b, test[0].Team);
+            Assert.Equal(d, test[1].Team);
+            Assert.Equal(a, test[2].Team);
+            Assert.Equal(c, test[3].Team);
         }
 
     }

@@ -1,5 +1,5 @@
 ﻿using System;
-using TournamentConstructor.GameUnit;
+using TournamentConstructor.GameUnits;
 
 namespace TournamentConstructor.Game
 {
@@ -9,8 +9,8 @@ namespace TournamentConstructor.Game
     {
         bool IsDraft { get; }
 
-        IGameUnit Winner { get; }
+        ITeam Winner { get; }
 
-        IGameUnit Loser { get; }
+        ITeam Loser { get; }
     }
 }

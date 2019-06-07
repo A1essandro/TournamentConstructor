@@ -1,4 +1,4 @@
-using TournamentConstructor.GameUnit;
+using TournamentConstructor.GameUnits;
 
 namespace TournamentConstructor.Game
 {
@@ -7,9 +7,9 @@ namespace TournamentConstructor.Game
 
         bool IsDraw { get; }
 
-        IGameUnit Winner { get; }
+        ITeam Winner { get; }
 
-        IGameUnit Loser { get; }
+        ITeam Loser { get; }
 
     }
 }
